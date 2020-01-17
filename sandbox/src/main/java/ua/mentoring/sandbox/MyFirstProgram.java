@@ -9,13 +9,9 @@ public class MyFirstProgram {
         hello("jopa");
 
         Square square = new Square(5);
- //       square.l = 5.0;
         System.out.println("Площадь квадрата со стороной " + square.l + " = " + area(square));
 
         Rectangle rectangle = new Rectangle(4,6);
- //       rectangle.a = 4;
- //       rectangle.b = 6;
-
         System.out.println("Площадь прямоугольника со сторонами " + rectangle.a + " и " + rectangle.b + " = " + area(rectangle));
 
     }
