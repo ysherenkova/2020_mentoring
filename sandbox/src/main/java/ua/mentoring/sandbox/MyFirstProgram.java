@@ -3,10 +3,11 @@ package ua.mentoring.sandbox;
 public class MyFirstProgram {
 
     public static void main(String[] args) {
-        System.out.println("Hello, " + "world!");
+        String somebody = "world";
+        System.out.println("Hello, " + somebody);
 
-        int a = 5;
-        int s = a * a;
+        double a = 5.0;
+        double s = a * a;
         System.out.println("Площадь квадрата со стороной " + a + " = " + s);
     }
 
