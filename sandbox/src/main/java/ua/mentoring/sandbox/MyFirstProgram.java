@@ -9,10 +9,10 @@ public class MyFirstProgram {
         hello("jopa");
 
         Square square = new Square(5);
-        System.out.println("Площадь квадрата со стороной " + square.l + " = " + area(square));
+        System.out.println("Площадь квадрата со стороной " + square.l + " = " + square.area());
 
         Rectangle rectangle = new Rectangle(4,6);
-        System.out.println("Площадь прямоугольника со сторонами " + rectangle.a + " и " + rectangle.b + " = " + area(rectangle));
+        System.out.println("Площадь прямоугольника со сторонами " + rectangle.a + " и " + rectangle.b + " = " + rectangle.area());
 
     }
 
@@ -20,12 +20,5 @@ public class MyFirstProgram {
         System.out.println("Hello, " + somebody + "!");
     }
 
-    public static double area (Square square){ //помни про область видимости
-        return square.l * square.l;
-    }
-
-    public static double area (Rectangle rectangle){ //переопределение функции
-        return rectangle.a * rectangle.b;
-    }
 
 }
