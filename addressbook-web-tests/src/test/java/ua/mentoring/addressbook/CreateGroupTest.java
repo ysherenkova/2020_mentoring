@@ -20,19 +20,19 @@ public class CreateGroupTest {
     driver = new FirefoxDriver();
     js = (JavascriptExecutor) driver;
     vars = new HashMap<String, Object>();
-  }
-  @After
-  public void tearDown() {
-    driver.quit();
-  }
-  @Test
-  public void createGroup() {
     driver.get("http://localhost/addressbook/index.php");
     driver.manage().window().setSize(new Dimension(550, 691));
     driver.findElement(By.name("user")).sendKeys("admin");
     driver.findElement(By.name("pass")).click();
     driver.findElement(By.name("pass")).sendKeys("secret");
     driver.findElement(By.cssSelector("input:nth-child(7)")).click();
+  }
+  @After
+  public void tearDown() {
+    driver.quit();
+  }
+  @Test
+  public void testGroupCreation() {
     driver.findElement(By.linkText("groups")).click();
     driver.findElement(By.name("new")).click();
     driver.findElement(By.name("group_name")).click();
