@@ -9,7 +9,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import java.util.HashMap;
 import java.util.Map;
 public class CreateGroupTest {
   private WebDriver driver;
@@ -18,30 +17,58 @@ public class CreateGroupTest {
   @Before
   public void setUp() {
     driver = new FirefoxDriver();
-    js = (JavascriptExecutor) driver;
-    vars = new HashMap<String, Object>();
     driver.get("http://localhost/addressbook/index.php");
     driver.manage().window().setSize(new Dimension(550, 691));
-    driver.findElement(By.name("user")).sendKeys("admin");
-    driver.findElement(By.name("pass")).click();
-    driver.findElement(By.name("pass")).sendKeys("secret");
-    driver.findElement(By.cssSelector("input:nth-child(7)")).click();
+    login("admin","secret");
   }
+
+  private void login(String username, String password) {
+    driver.findElement(By.name("user")).click();
+    driver.findElement(By.name("user")).clear();
+    driver.findElement(By.name("user")).sendKeys(username);
+    driver.findElement(By.name("pass")).click();
+    driver.findElement(By.name("pass")).sendKeys(password);
+    driver.findElement(By.xpath("//form[@id='LoginForm']/input[3]")).click();
+  }
+
   @After
   public void tearDown() {
     driver.quit();
   }
   @Test
   public void testGroupCreation() {
-    driver.findElement(By.linkText("groups")).click();
-    driver.findElement(By.name("new")).click();
-    driver.findElement(By.name("group_name")).click();
-    driver.findElement(By.name("group_name")).sendKeys("NewGroup");
-    driver.findElement(By.name("group_header")).click();
-    driver.findElement(By.name("group_header")).sendKeys("TestGroupHeader");
-    driver.findElement(By.name("group_footer")).click();
-    driver.findElement(By.name("group_footer")).sendKeys("TestGroupFooter");
+    gotoGroupPage();
+    initGroupCreation();
+    fillGroupForm(new GroupData("NewGroup", "TestGroupHeader", "TestGroupFooter"));
+    submitGroupCreation();
+    returnToGroupPage();
+  }
+
+  private void returnToGroupPage() {
+    driver.findElement(By.linkText("group page")).click();
+  }
+
+  private void submitGroupCreation() {
     driver.findElement(By.name("submit")).click();
+  }
+
+  private void fillGroupForm(GroupData groupData) {
+    driver.findElement(By.name("group_name")).click();
+    driver.findElement(By.name("group_name")).clear();
+    driver.findElement(By.name("group_name")).sendKeys(groupData.getName());
+    driver.findElement(By.name("group_header")).click();
+    driver.findElement(By.name("group_header")).clear();
+    driver.findElement(By.name("group_header")).sendKeys(groupData.getHeader());
+    driver.findElement(By.name("group_footer")).click();
+    driver.findElement(By.name("group_footer")).clear();
+    driver.findElement(By.name("group_footer")).sendKeys(groupData.getFooter());
+  }
+
+  private void initGroupCreation() {
+    driver.findElement(By.name("new")).click();
+  }
+
+  private void gotoGroupPage() {
     driver.findElement(By.linkText("group page")).click();
   }
 }
