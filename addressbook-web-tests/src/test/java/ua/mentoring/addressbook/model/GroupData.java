@@ -1,4 +1,4 @@
-package ua.mentoring.addressbook;
+package ua.mentoring.addressbook.model;
 
 public class GroupData {
   private final String name;
