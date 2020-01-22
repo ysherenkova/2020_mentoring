@@ -20,11 +20,11 @@ public class ApplicationManager {
   }
 
   public void init() {
-    if (BrowserType.CHROME == browser) {
+    if (browser.equals(BrowserType.CHROME)) {
       WebDriverManager.chromedriver().arch64().setup();
       driver = new ChromeDriver();
     }
-    else if (BrowserType.FIREFOX == browser) {
+    else if (browser.equals(BrowserType.FIREFOX)) {
       WebDriverManager.firefoxdriver().arch64().setup();
       driver = new FirefoxDriver();
     }

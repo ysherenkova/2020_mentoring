@@ -3,7 +3,6 @@ package ua.mentoring.addressbook.appManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class HelperBase {
   protected WebDriver driver;
@@ -17,12 +16,17 @@ public class HelperBase {
   }
 
   protected void type(By locator, String text) {
-    driver.findElement(locator).click();
-    driver.findElement(locator).clear();
-    driver.findElement(locator).sendKeys(text);
+    click(locator);
+    if (text != null) {
+      String existingTest = driver.findElement(locator).getAttribute("value");
+      if (!text.equals(existingTest)) {
+        driver.findElement(locator).clear();
+        driver.findElement(locator).sendKeys(text);
+      }
+    }
   }
 
-  public boolean isAlertPresent (){
+  public boolean isAlertPresent() {
     try{
       driver.switchTo().alert();
       return true;
