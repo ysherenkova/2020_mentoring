@@ -23,4 +23,5 @@ public class EquationTests {
     Assert.assertEquals(e.rootNumber(), 2);
   }
 
+
 }

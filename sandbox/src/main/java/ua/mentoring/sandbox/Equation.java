@@ -30,3 +30,4 @@ public class Equation {
     return number;
 }
 }
+

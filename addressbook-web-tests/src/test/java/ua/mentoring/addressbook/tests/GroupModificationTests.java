@@ -1,6 +1,6 @@
 package ua.mentoring.addressbook.tests;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 import ua.mentoring.addressbook.model.GroupData;
 
 public class GroupModificationTests extends TestBase {
