@@ -32,7 +32,7 @@ public class ApplicationManager {
       driver = new FirefoxDriver();
     }
 
-    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     driver.get("http://localhost/addressbook/index.php");
     groupHelper = new GroupHelper (driver);
     navigationHelper = new NavigationHelper(driver);

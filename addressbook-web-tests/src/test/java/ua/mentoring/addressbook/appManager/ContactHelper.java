@@ -25,7 +25,7 @@ public class ContactHelper extends  HelperBase {
     }
   }
 
-  private boolean isElementPresent(By locator) {
+  public boolean isElementPresent(By locator) {
     try {
       driver.findElement(locator);
       return true;
