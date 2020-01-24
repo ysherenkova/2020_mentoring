@@ -33,7 +33,8 @@ public class GroupHelper extends HelperBase {
   }
 
   public void selectGroup(){
-    click(By.name("selected[]"));
+ //   click(By.name("selected[]"));
+    click(By.cssSelector("#content > form > span > input[type=checkbox]"));
   }
 
   public void initGroupModification() {
@@ -42,5 +43,16 @@ public class GroupHelper extends HelperBase {
 
   public void submitGroupModification() {
     click(By.name("update"));
+  }
+
+  public void createGroup(GroupData group) {
+    initGroupCreation();
+    fillGroupForm(group);
+    submitGroupCreation();
+    returnToGroupPage();
+  }
+
+  public boolean IsThereAnyGroup() {
+    return isElementPresent(By.name("selected[]"));
   }
 }
