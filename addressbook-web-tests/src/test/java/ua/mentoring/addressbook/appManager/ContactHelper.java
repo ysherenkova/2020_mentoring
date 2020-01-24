@@ -16,12 +16,12 @@ public class ContactHelper extends  HelperBase {
 
   public void fillContactForm(ContactData contactData, boolean creation) {
     type(By.name("firstname"), contactData.getFirstName());
-    type(By.name("lasttname"), contactData.getLastName());
+    type(By.xpath("//*[@id=\"content\"]/form/input[5]"), contactData.getLastName());
     if (creation) {
       new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
     }
    else {
-      Assert.assertFalse(isElementPresent(By.name("new_group")));
+      Assert.assertFalse(isElementPresent(By.xpath("//*[@id=\"content\"]/form/select[5]")));
     }
   }
 
@@ -39,7 +39,7 @@ public class ContactHelper extends  HelperBase {
   }
 
   public void returnToHomePage() {
-    click(By.name("home page"));
+    click(By.xpath("//*[@id=\"nav\"]/ul/li[1]/a"));
   }
 
   public void initContactModification() {
