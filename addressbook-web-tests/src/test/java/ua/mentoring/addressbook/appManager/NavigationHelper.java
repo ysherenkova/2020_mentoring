@@ -11,6 +11,9 @@ public class NavigationHelper extends HelperBase{
   }
 
   public void gotoGroupPage() {
-    click(By.linkText("group page"));
+    click(By.xpath("/html/body/div/div[3]/ul/li[3]/a"));
+  }
+
+  public void gotoHomePage() {
   }
 }

@@ -6,6 +6,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import ua.mentoring.addressbook.model.BrowserType;
 
+import java.util.concurrent.TimeUnit;
+
 public class ApplicationManager {
 
   private BrowserType browser;
@@ -13,9 +15,10 @@ public class ApplicationManager {
 
   private SessionHelper sessionHelper;
   private  NavigationHelper navigationHelper;
+  private ContactHelper contactHelper;
   private GroupHelper groupHelper;
 
-  public ApplicationManager(BrowserType browser) {
+  public ApplicationManager (BrowserType browser) {
     this.browser = browser;
   }
 
@@ -29,7 +32,7 @@ public class ApplicationManager {
       driver = new FirefoxDriver();
     }
 
-
+    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     driver.get("http://localhost/addressbook/index.php");
     groupHelper = new GroupHelper (driver);
     navigationHelper = new NavigationHelper(driver);
@@ -47,5 +50,9 @@ public class ApplicationManager {
 
   public NavigationHelper getNavigationHelper() {
     return navigationHelper;
+  }
+
+  public ContactHelper getContactHelper() {
+    return contactHelper;
   }
 }

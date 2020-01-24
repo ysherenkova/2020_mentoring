@@ -17,14 +17,14 @@ public class HelperBase {
 
   protected void type(By locator, String text) {
     click(locator);
-    if (text != null) {
-      String existingTest = driver.findElement(locator).getAttribute("value");
-      if (!text.equals(existingTest)) {
+//    if (text != null) {
+//      String existingTest = driver.findElement(locator).getAttribute("value");
+//      if (!text.equals(existingTest)) {
         driver.findElement(locator).clear();
         driver.findElement(locator).sendKeys(text);
       }
-    }
-  }
+//    }
+//  }
 
   public boolean isAlertPresent() {
     try{
@@ -34,4 +34,5 @@ public class HelperBase {
       return false;
     }
   }
+
 }
