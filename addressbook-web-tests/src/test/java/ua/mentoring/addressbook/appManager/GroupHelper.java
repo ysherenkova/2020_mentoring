@@ -55,4 +55,8 @@ public class GroupHelper extends HelperBase {
   public boolean IsThereAnyGroup() {
     return isElementPresent(By.name("selected[]"));
   }
+
+  public int getGroupCount() {
+   return driver.findElements(By.cssSelector("#content > form > span > input[type=checkbox]")).size();
+  }
 }
