@@ -5,15 +5,17 @@ import org.testng.annotations.Test;
 
 import ua.mentoring.addressbook.model.GroupData;
 
+import java.util.List;
+
 public class GroupCreationTests extends TestBase {
 
   @Test
   public void testGroupCreation() {
-    int before = applicationManager.getGroupHelper().getGroupCount();
     applicationManager.getNavigationHelper().gotoGroupPage();
+    List<GroupData> before = applicationManager.getGroupHelper().getGroupList();
     applicationManager.getGroupHelper().createGroup(new GroupData("NewGroup", "", ""));
-    int after = applicationManager.getGroupHelper().getGroupCount();
-    Assert.assertEquals(after, before +1);
+    List<GroupData> after = applicationManager.getGroupHelper().getGroupList();
+    Assert.assertEquals(after.size(), before.size() +1);
   }
 
 }
