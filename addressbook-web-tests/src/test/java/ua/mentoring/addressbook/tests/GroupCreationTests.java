@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 
 import ua.mentoring.addressbook.model.GroupData;
 
+import java.util.HashSet;
 import java.util.List;
 
 public class GroupCreationTests extends TestBase {
@@ -13,9 +14,21 @@ public class GroupCreationTests extends TestBase {
   public void testGroupCreation() {
     applicationManager.getNavigationHelper().gotoGroupPage();
     List<GroupData> before = applicationManager.getGroupHelper().getGroupList();
-    applicationManager.getGroupHelper().createGroup(new GroupData("NewGroup", "", ""));
+    GroupData group = new GroupData("NewGroup", "", "")
+    applicationManager.getGroupHelper().createGroup(group);
     List<GroupData> after = applicationManager.getGroupHelper().getGroupList();
     Assert.assertEquals(after.size(), before.size() +1);
+
+    int max = 0;
+    for (GroupData g : after) {
+      if (group.getId() < max) {
+          max = g.getId();
+      }
+    }
+    group.setId(max);
+    before.add(group);
+    Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after));
+
   }
 
 }
