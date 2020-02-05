@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d4f485eb-b6ae-44bf-b315-4b89b8d0a567" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/appManager/GroupHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/appManager/GroupHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/model/GroupData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/model/GroupData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/tests/GroupCreationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/tests/GroupCreationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -79,10 +77,10 @@
       <screen x="0" y="23" width="1398" height="877" />
     </state>
     <state x="299" y="128" key="#Code_Folding/0.23.1398.877/-258.-1057.1920.1057@0.23.1398.877" timestamp="1580835618032" />
-    <state x="163" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1580836239087">
+    <state x="163" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1580899662212">
       <screen x="0" y="23" width="1398" height="877" />
     </state>
-    <state x="163" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1398.877/-258.-1057.1920.1057@0.23.1398.877" timestamp="1580836239087" />
+    <state x="163" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1398.877/-258.-1057.1920.1057@0.23.1398.877" timestamp="1580899662212" />
     <state x="445" y="171" key="#com.intellij.ide.util.MemberChooser" timestamp="1580836154667">
       <screen x="0" y="23" width="1398" height="877" />
     </state>
