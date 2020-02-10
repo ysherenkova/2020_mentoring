@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d4f485eb-b6ae-44bf-b315-4b89b8d0a567" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/tests/GroupCreationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/tests/GroupCreationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -14,6 +15,23 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="addressbook-web-tests" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -27,9 +45,32 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="TestNG.Unnamed">
+    <configuration name="GroupCreationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;ua.mentoring.addressbook.tests.GroupCreationTests&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="Unnamed" type="TestNG" nameIsGenerated="true">
       <option name="SUITE_NAME" value="" />
       <option name="PACKAGE_NAME" value="ua.mentoring.addressbook" />
@@ -46,6 +87,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.GroupCreationTests" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -77,10 +123,11 @@
       <screen x="0" y="23" width="1398" height="877" />
     </state>
     <state x="299" y="128" key="#Code_Folding/0.23.1398.877/-258.-1057.1920.1057@0.23.1398.877" timestamp="1580835618032" />
-    <state x="163" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1580899662212">
+    <state x="163" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581110383461">
       <screen x="0" y="23" width="1398" height="877" />
     </state>
     <state x="163" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1398.877/-258.-1057.1920.1057@0.23.1398.877" timestamp="1580899662212" />
+    <state x="163" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1398.877@0.23.1398.877" timestamp="1581110383461" />
     <state x="445" y="171" key="#com.intellij.ide.util.MemberChooser" timestamp="1580836154667">
       <screen x="0" y="23" width="1398" height="877" />
     </state>
@@ -89,5 +136,25 @@
       <screen x="0" y="23" width="1398" height="877" />
     </state>
     <state x="436" y="247" key="#com.intellij.ide.util.PackageChooserDialog/0.23.1398.877/-258.-1057.1920.1057@0.23.1398.877" timestamp="1580836235201" />
+    <state width="1356" height="230" key="GridCell.Tab.0.bottom" timestamp="1581360749208">
+      <screen x="0" y="23" width="1398" height="877" />
+    </state>
+    <state width="1356" height="230" key="GridCell.Tab.0.bottom/0.23.1398.877/-258.-1057.1920.1057@0.23.1398.877" timestamp="1581360749208" />
+    <state width="1356" height="230" key="GridCell.Tab.0.center" timestamp="1581360749207">
+      <screen x="0" y="23" width="1398" height="877" />
+    </state>
+    <state width="1356" height="230" key="GridCell.Tab.0.center/0.23.1398.877/-258.-1057.1920.1057@0.23.1398.877" timestamp="1581360749207" />
+    <state width="1356" height="230" key="GridCell.Tab.0.left" timestamp="1581360749206">
+      <screen x="0" y="23" width="1398" height="877" />
+    </state>
+    <state width="1356" height="230" key="GridCell.Tab.0.left/0.23.1398.877/-258.-1057.1920.1057@0.23.1398.877" timestamp="1581360749206" />
+    <state width="1356" height="230" key="GridCell.Tab.0.right" timestamp="1581360749207">
+      <screen x="0" y="23" width="1398" height="877" />
+    </state>
+    <state width="1356" height="230" key="GridCell.Tab.0.right/0.23.1398.877/-258.-1057.1920.1057@0.23.1398.877" timestamp="1581360749207" />
+    <state x="187" y="44" key="SettingsEditor" timestamp="1581360485284">
+      <screen x="0" y="23" width="1398" height="877" />
+    </state>
+    <state x="187" y="44" key="SettingsEditor/0.23.1398.877/-258.-1057.1920.1057@0.23.1398.877" timestamp="1581360485284" />
   </component>
 </project>
