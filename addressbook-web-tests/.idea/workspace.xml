@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d4f485eb-b6ae-44bf-b315-4b89b8d0a567" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/tests/TestBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/tests/TestBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/appManager/GroupHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/appManager/GroupHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/tests/GroupModificationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/tests/GroupModificationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +54,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.34367815" />
@@ -187,6 +189,10 @@
     </state>
     <state x="187" y="44" key="SettingsEditor/0.23.1398.877/-245.-1177.1920.1177@0.23.1398.877" timestamp="1581420770591" />
     <state x="187" y="44" key="SettingsEditor/0.23.1398.877/-258.-1057.1920.1057@0.23.1398.877" timestamp="1581360485284" />
+    <state x="437" y="222" key="extract.method.dialog" timestamp="1583180452817">
+      <screen x="0" y="23" width="1398" height="877" />
+    </state>
+    <state x="437" y="222" key="extract.method.dialog/0.23.1398.877/-258.-1057.1920.1057@0.23.1398.877" timestamp="1583180452817" />
     <state x="93" y="55" key="new project wizard" timestamp="1581423398555">
       <screen x="0" y="23" width="1398" height="877" />
     </state>
