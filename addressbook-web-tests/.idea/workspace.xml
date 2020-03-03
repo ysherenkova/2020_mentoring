@@ -3,7 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="d4f485eb-b6ae-44bf-b315-4b89b8d0a567" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/appManager/ApplicationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/appManager/ApplicationManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/appManager/GroupHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/appManager/GroupHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/appManager/NavigationHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/appManager/NavigationHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/tests/ContactCreationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/tests/ContactCreationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/tests/ContactModificationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/tests/ContactModificationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/tests/GroupCreationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/tests/GroupCreationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/tests/GroupDeletionTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/tests/GroupDeletionTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/tests/GroupModificationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/tests/GroupModificationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -189,10 +195,15 @@
     </state>
     <state x="187" y="44" key="SettingsEditor/0.23.1398.877/-245.-1177.1920.1177@0.23.1398.877" timestamp="1581420770591" />
     <state x="187" y="44" key="SettingsEditor/0.23.1398.877/-258.-1057.1920.1057@0.23.1398.877" timestamp="1581360485284" />
-    <state x="437" y="222" key="extract.method.dialog" timestamp="1583180452817">
-      <screen x="0" y="23" width="1398" height="877" />
+    <state x="437" y="222" key="extract.method.dialog" timestamp="1583181534134">
+      <screen x="0" y="23" width="1399" height="877" />
     </state>
     <state x="437" y="222" key="extract.method.dialog/0.23.1398.877/-258.-1057.1920.1057@0.23.1398.877" timestamp="1583180452817" />
+    <state x="437" y="222" key="extract.method.dialog/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583181534134" />
+    <state width="600" height="424" key="javadoc.popup" timestamp="1583181089915">
+      <screen x="0" y="23" width="1399" height="877" />
+    </state>
+    <state width="600" height="424" key="javadoc.popup/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583181089915" />
     <state x="93" y="55" key="new project wizard" timestamp="1581423398555">
       <screen x="0" y="23" width="1398" height="877" />
     </state>
