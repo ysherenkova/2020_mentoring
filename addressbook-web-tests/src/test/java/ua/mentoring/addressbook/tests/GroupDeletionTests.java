@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import ua.mentoring.addressbook.model.GroupData;
 
 import java.util.List;
+import java.util.Set;
 
 
 public class GroupDeletionTests extends TestBase {
@@ -12,21 +13,20 @@ public class GroupDeletionTests extends TestBase {
   @BeforeMethod
   public void ensurePreconditions() {
     applicationManager.goTo().groupPage();
-    if (applicationManager.group().list().size() == 0) {
+    if (applicationManager.group().all().size() == 0) {
       applicationManager.group().create(new GroupData().withName("Test group"));
     }
   }
 
   @Test
   public void testGroupDeletion () {
-    List<GroupData> before = applicationManager.group().list();
-    int index = before.size() - 1;
-
-    applicationManager.group().delete(index);
-    List<GroupData> after = applicationManager.group().list();
+    Set<GroupData> before = applicationManager.group().all();
+    GroupData deletedGroup = before.iterator().next();
+    applicationManager.group().delete(deletedGroup);
+    Set<GroupData> after = applicationManager.group().all();
     Assert.assertEquals(after.size(), before.size() -1);
 
-    before.remove(index);
+    before.remove(deletedGroup);
     Assert.assertEquals(before, after);
   }
 
