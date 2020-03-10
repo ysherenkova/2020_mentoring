@@ -3,12 +3,15 @@ package ua.mentoring.addressbook.Generators;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.ParameterException;
+import com.google.gson.internal.bind.util.ISO8601Utils;
+import com.thoughtworks.xstream.XStream;
 import ua.mentoring.addressbook.model.GroupData;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
+import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +21,8 @@ public class GroupDataGenerator {
   public int count;
   @Parameter(names = "-f", description = "Target file")
   public String file;
+  @Parameter(names = "-d", description = "TData format")
+  public String format;
 
   public static void main(String[] args) throws IOException {
     GroupDataGenerator generator = new GroupDataGenerator();
@@ -35,9 +40,22 @@ public class GroupDataGenerator {
   private void run() throws IOException {
     //генерация файлов
     List<GroupData> groups = generateGroups(count);
+    if (format.equals("csv"))
+      //сохранение данных в файл
+      saveAsCsv(groups, new File(file));
+    else if (format.equals("xml"))
+      saveAsXml(groups, new File(file));
+    else
+      System.out.println("Unrecognized format" + format);
+  }
 
-    //сохранение данных в файл
-    save(groups, new File(file));
+  private void saveAsXml(List<GroupData> groups, File file) throws IOException {
+    XStream xStream = new XStream();
+    xStream.processAnnotations(GroupData.class);
+    String xml = xStream.toXML(groups);
+    Writer writer = new FileWriter(file);
+    writer.write(xml);
+    writer.close();
   }
 
   private List<GroupData> generateGroups(int count) {
@@ -51,7 +69,7 @@ public class GroupDataGenerator {
     return groups;
   }
 
-  private void save(List<GroupData> groups, File file) throws IOException {
+  private void saveAsCsv(List<GroupData> groups, File file) throws IOException {
     System.out.println(new File(".").getAbsolutePath());
     Writer writer = new FileWriter(file);
     for (GroupData group : groups) {

@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4f485eb-b6ae-44bf-b315-4b89b8d0a567" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/resources/groups.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/ua/mentoring/addressbook/Generators/GroupDataGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/ua/mentoring/addressbook/Generators/GroupDataGenerator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/ua/mentoring/addressbook/tests/GroupCreationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/ua/mentoring/addressbook/tests/GroupCreationTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/Generators/GroupDataGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/Generators/GroupDataGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/model/GroupData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/model/GroupData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/tests/GroupCreationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/tests/GroupCreationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,11 +70,11 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
-  <component name="RunManager" selected="TestNG.">
+  <component name="RunManager" selected="Application.GroupDataGenerator">
     <configuration name="GroupDataGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ua.mentoring.addressbook.Generators.GroupDataGenerator" />
       <module name="addressbook-web-tests.test" />
-      <option name="PROGRAM_PARAMETERS" value="-c 10 -f src/test/resources/groups.csv" />
+      <option name="PROGRAM_PARAMETERS" value="-c 10 -f src/test/resources/groups.xml -d xml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="ua.mentoring.addressbook.Generators.*" />
@@ -194,13 +200,13 @@
       <screen x="0" y="23" width="1399" height="877" />
     </state>
     <state x="382" y="123" key="#Unnamed/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583502364381" />
-    <state x="163" y="125" width="1071" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583855819106">
+    <state x="163" y="125" width="1071" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583857653850">
       <screen x="0" y="23" width="1399" height="877" />
     </state>
     <state x="163" y="125" width="1071" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1398.877/-245.-1177.1920.1177@0.23.1398.877" timestamp="1581420753383" />
     <state x="163" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1398.877/-258.-1057.1920.1057@0.23.1398.877" timestamp="1580899662212" />
     <state x="163" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1398.877@0.23.1398.877" timestamp="1581110383461" />
-    <state x="163" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583855819106" />
+    <state x="163" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583857653850" />
     <state x="753" y="121" key="#com.intellij.ide.util.MemberChooser" timestamp="1583489353886">
       <screen x="0" y="23" width="1399" height="877" />
     </state>
@@ -210,37 +216,37 @@
       <screen x="0" y="23" width="1398" height="877" />
     </state>
     <state x="436" y="247" key="#com.intellij.ide.util.PackageChooserDialog/0.23.1398.877/-258.-1057.1920.1057@0.23.1398.877" timestamp="1580836235201" />
-    <state width="1356" height="190" key="GridCell.Tab.0.bottom" timestamp="1583855820271">
+    <state width="1356" height="189" key="GridCell.Tab.0.bottom" timestamp="1583857900696">
       <screen x="0" y="23" width="1399" height="877" />
     </state>
     <state width="1356" height="285" key="GridCell.Tab.0.bottom/0.23.1398.877/-245.-1177.1920.1177@0.23.1398.877" timestamp="1581423402966" />
     <state width="1356" height="230" key="GridCell.Tab.0.bottom/0.23.1398.877/-258.-1057.1920.1057@0.23.1398.877" timestamp="1581360749208" />
     <state width="1356" height="191" key="GridCell.Tab.0.bottom/0.23.1399.877/-245.-1177.1920.1177@0.23.1399.877" timestamp="1583399788025" />
-    <state width="1356" height="190" key="GridCell.Tab.0.bottom/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583855820271" />
+    <state width="1356" height="189" key="GridCell.Tab.0.bottom/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583857900696" />
     <state width="1356" height="191" key="GridCell.Tab.0.bottom/0.23.1399.877@0.23.1399.877" timestamp="1583245051968" />
-    <state width="1356" height="190" key="GridCell.Tab.0.center" timestamp="1583855820269">
+    <state width="1356" height="189" key="GridCell.Tab.0.center" timestamp="1583857900695">
       <screen x="0" y="23" width="1399" height="877" />
     </state>
     <state width="1356" height="285" key="GridCell.Tab.0.center/0.23.1398.877/-245.-1177.1920.1177@0.23.1398.877" timestamp="1581423402966" />
     <state width="1356" height="230" key="GridCell.Tab.0.center/0.23.1398.877/-258.-1057.1920.1057@0.23.1398.877" timestamp="1581360749207" />
     <state width="1356" height="191" key="GridCell.Tab.0.center/0.23.1399.877/-245.-1177.1920.1177@0.23.1399.877" timestamp="1583399788024" />
-    <state width="1356" height="190" key="GridCell.Tab.0.center/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583855820269" />
+    <state width="1356" height="189" key="GridCell.Tab.0.center/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583857900695" />
     <state width="1356" height="191" key="GridCell.Tab.0.center/0.23.1399.877@0.23.1399.877" timestamp="1583245051968" />
-    <state width="1356" height="190" key="GridCell.Tab.0.left" timestamp="1583855820269">
+    <state width="1356" height="189" key="GridCell.Tab.0.left" timestamp="1583857900695">
       <screen x="0" y="23" width="1399" height="877" />
     </state>
     <state width="1356" height="285" key="GridCell.Tab.0.left/0.23.1398.877/-245.-1177.1920.1177@0.23.1398.877" timestamp="1581423402965" />
     <state width="1356" height="230" key="GridCell.Tab.0.left/0.23.1398.877/-258.-1057.1920.1057@0.23.1398.877" timestamp="1581360749206" />
     <state width="1356" height="191" key="GridCell.Tab.0.left/0.23.1399.877/-245.-1177.1920.1177@0.23.1399.877" timestamp="1583399788024" />
-    <state width="1356" height="190" key="GridCell.Tab.0.left/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583855820269" />
+    <state width="1356" height="189" key="GridCell.Tab.0.left/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583857900695" />
     <state width="1356" height="191" key="GridCell.Tab.0.left/0.23.1399.877@0.23.1399.877" timestamp="1583245051967" />
-    <state width="1356" height="190" key="GridCell.Tab.0.right" timestamp="1583855820270">
+    <state width="1356" height="189" key="GridCell.Tab.0.right" timestamp="1583857900696">
       <screen x="0" y="23" width="1399" height="877" />
     </state>
     <state width="1356" height="285" key="GridCell.Tab.0.right/0.23.1398.877/-245.-1177.1920.1177@0.23.1398.877" timestamp="1581423402966" />
     <state width="1356" height="230" key="GridCell.Tab.0.right/0.23.1398.877/-258.-1057.1920.1057@0.23.1398.877" timestamp="1581360749207" />
     <state width="1356" height="191" key="GridCell.Tab.0.right/0.23.1399.877/-245.-1177.1920.1177@0.23.1399.877" timestamp="1583399788025" />
-    <state width="1356" height="190" key="GridCell.Tab.0.right/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583855820270" />
+    <state width="1356" height="189" key="GridCell.Tab.0.right/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583857900696" />
     <state width="1356" height="191" key="GridCell.Tab.0.right/0.23.1399.877@0.23.1399.877" timestamp="1583245051968" />
     <state width="1356" height="285" key="GridCell.Tab.1.bottom" timestamp="1581423402967">
       <screen x="0" y="23" width="1398" height="877" />
