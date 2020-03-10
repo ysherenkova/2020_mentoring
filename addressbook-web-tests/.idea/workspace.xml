@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4f485eb-b6ae-44bf-b315-4b89b8d0a567" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/Generators/GroupDataGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/groups.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/model/ContactData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/model/ContactData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/tests/ContactCreationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/tests/ContactCreationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/Generators/GroupDataGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/Generators/GroupDataGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/tests/GroupCreationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/tests/GroupCreationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +22,9 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
@@ -54,6 +59,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="project.structure.last.edited" value="Project" />
@@ -62,10 +68,11 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
-  <component name="RunManager" selected="Application.GroupDataGenerator">
+  <component name="RunManager" selected="TestNG.">
     <configuration name="GroupDataGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ua.mentoring.addressbook.Generators.GroupDataGenerator" />
       <module name="addressbook-web-tests.test" />
+      <option name="PROGRAM_PARAMETERS" value="-c 10 -f src/test/resources/groups.csv" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="ua.mentoring.addressbook.Generators.*" />
@@ -102,15 +109,36 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Unnamed" type="TestNG" nameIsGenerated="true">
+    <configuration name="GroupCreationTests.testGroupCreation" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;ua.mentoring.addressbook.tests.GroupCreationTests.testGroupCreation&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" value="" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration type="TestNG" nameIsGenerated="true">
       <option name="SUITE_NAME" value="" />
       <option name="PACKAGE_NAME" value="ua.mentoring.addressbook" />
       <option name="MAIN_CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
       <option name="GROUP_NAME" value="" />
       <option name="TEST_OBJECT" value="PACKAGE" />
+      <option name="VM_PARAMETERS" />
       <option name="PARAMETERS" value="" />
       <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
       <option name="PROPERTIES_FILE" value="" />
       <properties />
       <listeners />
@@ -120,14 +148,16 @@
     </configuration>
     <list>
       <item itemvalue="Application.Unnamed" />
-      <item itemvalue="Gradle.GroupCreationTests" />
-      <item itemvalue="TestNG.Unnamed" />
       <item itemvalue="Application.GroupDataGenerator" />
+      <item itemvalue="Gradle.GroupCreationTests" />
+      <item itemvalue="Gradle.GroupCreationTests.testGroupCreation" />
+      <item itemvalue="TestNG." />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.GroupDataGenerator" />
         <item itemvalue="Gradle.GroupCreationTests" />
+        <item itemvalue="Gradle.GroupCreationTests.testGroupCreation" />
+        <item itemvalue="Application.GroupDataGenerator" />
       </list>
     </recent_temporary>
   </component>
@@ -156,6 +186,9 @@
     </task>
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="299" y="128" key="#Code_Folding" timestamp="1580835618032">
       <screen x="0" y="23" width="1398" height="877" />
@@ -165,13 +198,13 @@
       <screen x="0" y="23" width="1399" height="877" />
     </state>
     <state x="382" y="123" key="#Unnamed/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583502364381" />
-    <state x="163" y="125" width="1071" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583502360450">
+    <state x="163" y="125" width="1071" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583855819106">
       <screen x="0" y="23" width="1399" height="877" />
     </state>
     <state x="163" y="125" width="1071" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1398.877/-245.-1177.1920.1177@0.23.1398.877" timestamp="1581420753383" />
     <state x="163" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1398.877/-258.-1057.1920.1057@0.23.1398.877" timestamp="1580899662212" />
     <state x="163" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1398.877@0.23.1398.877" timestamp="1581110383461" />
-    <state x="163" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583502360450" />
+    <state x="163" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583855819106" />
     <state x="753" y="121" key="#com.intellij.ide.util.MemberChooser" timestamp="1583489353886">
       <screen x="0" y="23" width="1399" height="877" />
     </state>
@@ -181,37 +214,37 @@
       <screen x="0" y="23" width="1398" height="877" />
     </state>
     <state x="436" y="247" key="#com.intellij.ide.util.PackageChooserDialog/0.23.1398.877/-258.-1057.1920.1057@0.23.1398.877" timestamp="1580836235201" />
-    <state width="1356" height="190" key="GridCell.Tab.0.bottom" timestamp="1583502388603">
+    <state width="1356" height="190" key="GridCell.Tab.0.bottom" timestamp="1583855820271">
       <screen x="0" y="23" width="1399" height="877" />
     </state>
     <state width="1356" height="285" key="GridCell.Tab.0.bottom/0.23.1398.877/-245.-1177.1920.1177@0.23.1398.877" timestamp="1581423402966" />
     <state width="1356" height="230" key="GridCell.Tab.0.bottom/0.23.1398.877/-258.-1057.1920.1057@0.23.1398.877" timestamp="1581360749208" />
     <state width="1356" height="191" key="GridCell.Tab.0.bottom/0.23.1399.877/-245.-1177.1920.1177@0.23.1399.877" timestamp="1583399788025" />
-    <state width="1356" height="190" key="GridCell.Tab.0.bottom/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583502388603" />
+    <state width="1356" height="190" key="GridCell.Tab.0.bottom/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583855820271" />
     <state width="1356" height="191" key="GridCell.Tab.0.bottom/0.23.1399.877@0.23.1399.877" timestamp="1583245051968" />
-    <state width="1356" height="190" key="GridCell.Tab.0.center" timestamp="1583502388602">
+    <state width="1356" height="190" key="GridCell.Tab.0.center" timestamp="1583855820269">
       <screen x="0" y="23" width="1399" height="877" />
     </state>
     <state width="1356" height="285" key="GridCell.Tab.0.center/0.23.1398.877/-245.-1177.1920.1177@0.23.1398.877" timestamp="1581423402966" />
     <state width="1356" height="230" key="GridCell.Tab.0.center/0.23.1398.877/-258.-1057.1920.1057@0.23.1398.877" timestamp="1581360749207" />
     <state width="1356" height="191" key="GridCell.Tab.0.center/0.23.1399.877/-245.-1177.1920.1177@0.23.1399.877" timestamp="1583399788024" />
-    <state width="1356" height="190" key="GridCell.Tab.0.center/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583502388602" />
+    <state width="1356" height="190" key="GridCell.Tab.0.center/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583855820269" />
     <state width="1356" height="191" key="GridCell.Tab.0.center/0.23.1399.877@0.23.1399.877" timestamp="1583245051968" />
-    <state width="1356" height="190" key="GridCell.Tab.0.left" timestamp="1583502388601">
+    <state width="1356" height="190" key="GridCell.Tab.0.left" timestamp="1583855820269">
       <screen x="0" y="23" width="1399" height="877" />
     </state>
     <state width="1356" height="285" key="GridCell.Tab.0.left/0.23.1398.877/-245.-1177.1920.1177@0.23.1398.877" timestamp="1581423402965" />
     <state width="1356" height="230" key="GridCell.Tab.0.left/0.23.1398.877/-258.-1057.1920.1057@0.23.1398.877" timestamp="1581360749206" />
     <state width="1356" height="191" key="GridCell.Tab.0.left/0.23.1399.877/-245.-1177.1920.1177@0.23.1399.877" timestamp="1583399788024" />
-    <state width="1356" height="190" key="GridCell.Tab.0.left/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583502388601" />
+    <state width="1356" height="190" key="GridCell.Tab.0.left/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583855820269" />
     <state width="1356" height="191" key="GridCell.Tab.0.left/0.23.1399.877@0.23.1399.877" timestamp="1583245051967" />
-    <state width="1356" height="190" key="GridCell.Tab.0.right" timestamp="1583502388602">
+    <state width="1356" height="190" key="GridCell.Tab.0.right" timestamp="1583855820270">
       <screen x="0" y="23" width="1399" height="877" />
     </state>
     <state width="1356" height="285" key="GridCell.Tab.0.right/0.23.1398.877/-245.-1177.1920.1177@0.23.1398.877" timestamp="1581423402966" />
     <state width="1356" height="230" key="GridCell.Tab.0.right/0.23.1398.877/-258.-1057.1920.1057@0.23.1398.877" timestamp="1581360749207" />
     <state width="1356" height="191" key="GridCell.Tab.0.right/0.23.1399.877/-245.-1177.1920.1177@0.23.1399.877" timestamp="1583399788025" />
-    <state width="1356" height="190" key="GridCell.Tab.0.right/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583502388602" />
+    <state width="1356" height="190" key="GridCell.Tab.0.right/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583855820270" />
     <state width="1356" height="191" key="GridCell.Tab.0.right/0.23.1399.877@0.23.1399.877" timestamp="1583245051968" />
     <state width="1356" height="285" key="GridCell.Tab.1.bottom" timestamp="1581423402967">
       <screen x="0" y="23" width="1398" height="877" />
