@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4f485eb-b6ae-44bf-b315-4b89b8d0a567" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/resources/logback.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/tests/DbConnectionTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/tests/ContactCreationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/tests/ContactCreationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/tests/GroupCreationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/tests/GroupCreationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/tests/TestBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/tests/TestBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/ua/mentoring/addressbook/tests/GroupCreationTests$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/ua/mentoring/addressbook/tests/GroupCreationTests$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/ua/mentoring/addressbook/tests/GroupCreationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/ua/mentoring/addressbook/tests/GroupCreationTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/testng.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +74,7 @@
       <recent name="$PROJECT_DIR$/src/test/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.ua.mentoring.addressbook">
+  <component name="RunManager" selected="TestNG.">
     <configuration name="GroupDataGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ua.mentoring.addressbook.Generators.GroupDataGenerator" />
       <module name="addressbook-web-tests.test" />
@@ -94,6 +94,26 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="DbConnectionTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;ua.mentoring.addressbook.tests.DbConnectionTest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
     </configuration>
     <configuration name="GroupCreationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -129,24 +149,14 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="/Users/yuliia_sherenkova/Documents/GitHub/2020_mentoring/addressbook-web-tests/src/test/resources/testng.xml" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="addressbook-web-tests.test" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/testng.xml" />
-      <option name="TEST_OBJECT" value="SUITE" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ua.mentoring.addressbook" type="TestNG" nameIsGenerated="true">
+    <configuration type="TestNG" nameIsGenerated="true">
       <option name="SUITE_NAME" value="" />
-      <option name="PACKAGE_NAME" value="ua.mentoring.addressbook" />
-      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="ua.mentoring.addressbook.tests" />
+      <option name="MAIN_CLASS_NAME" value="ua.mentoring.addressbook.tests.DbConnectionTest" />
       <option name="METHOD_NAME" value="" />
       <option name="GROUP_NAME" value="" />
-      <option name="TEST_OBJECT" value="PACKAGE" />
-      <option name="VM_PARAMETERS" value="-ea -Dbrowser=firefox" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
       <option name="PARAMETERS" value="" />
       <option name="OUTPUT_DIRECTORY" value="" />
       <option name="TEST_SEARCH_SCOPE">
@@ -159,16 +169,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="/Users/yuliia_sherenkova/Documents/GitHub/2020_mentoring/addressbook-web-tests/src/test/resources/testng.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="addressbook-web-tests.test" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/testng.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Unnamed" />
       <item itemvalue="Application.GroupDataGenerator" />
       <item itemvalue="Gradle.GroupCreationTests" />
       <item itemvalue="Gradle.GroupCreationTests.testGroupCreation" />
-      <item itemvalue="TestNG.ua.mentoring.addressbook" />
+      <item itemvalue="Gradle.DbConnectionTest" />
+      <item itemvalue="TestNG." />
       <item itemvalue="TestNG./Users/yuliia_sherenkova/Documents/GitHub/2020_mentoring/addressbook-web-tests/src/test/resources/testng.xml" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.DbConnectionTest" />
         <item itemvalue="Gradle.GroupCreationTests" />
         <item itemvalue="TestNG./Users/yuliia_sherenkova/Documents/GitHub/2020_mentoring/addressbook-web-tests/src/test/resources/testng.xml" />
         <item itemvalue="Gradle.GroupCreationTests.testGroupCreation" />
@@ -213,13 +235,13 @@
       <screen x="0" y="23" width="1399" height="877" />
     </state>
     <state x="382" y="123" key="#Unnamed/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583502364381" />
-    <state x="163" y="125" width="1071" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583920146559">
+    <state x="163" y="125" width="1071" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583940129041">
       <screen x="0" y="23" width="1399" height="877" />
     </state>
     <state x="163" y="125" width="1071" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1398.877/-245.-1177.1920.1177@0.23.1398.877" timestamp="1581420753383" />
     <state x="163" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1398.877/-258.-1057.1920.1057@0.23.1398.877" timestamp="1580899662212" />
     <state x="163" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1398.877@0.23.1398.877" timestamp="1581110383461" />
-    <state x="163" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583920146559" />
+    <state x="163" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583940129041" />
     <state x="407" y="271" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1583923567544">
       <screen x="0" y="23" width="1399" height="877" />
     </state>
@@ -233,37 +255,41 @@
       <screen x="0" y="23" width="1398" height="877" />
     </state>
     <state x="436" y="247" key="#com.intellij.ide.util.PackageChooserDialog/0.23.1398.877/-258.-1057.1920.1057@0.23.1398.877" timestamp="1580836235201" />
-    <state width="1356" height="189" key="GridCell.Tab.0.bottom" timestamp="1583918347165">
+    <state x="436" y="255" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1583940127755">
+      <screen x="0" y="23" width="1399" height="877" />
+    </state>
+    <state x="436" y="255" key="#com.intellij.ide.util.TreeClassChooserDialog/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583940127755" />
+    <state width="1356" height="188" key="GridCell.Tab.0.bottom" timestamp="1583941651968">
       <screen x="0" y="23" width="1399" height="877" />
     </state>
     <state width="1356" height="285" key="GridCell.Tab.0.bottom/0.23.1398.877/-245.-1177.1920.1177@0.23.1398.877" timestamp="1581423402966" />
     <state width="1356" height="230" key="GridCell.Tab.0.bottom/0.23.1398.877/-258.-1057.1920.1057@0.23.1398.877" timestamp="1581360749208" />
     <state width="1356" height="191" key="GridCell.Tab.0.bottom/0.23.1399.877/-245.-1177.1920.1177@0.23.1399.877" timestamp="1583399788025" />
-    <state width="1356" height="189" key="GridCell.Tab.0.bottom/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583918347165" />
+    <state width="1356" height="188" key="GridCell.Tab.0.bottom/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583941651968" />
     <state width="1356" height="191" key="GridCell.Tab.0.bottom/0.23.1399.877@0.23.1399.877" timestamp="1583245051968" />
-    <state width="1356" height="189" key="GridCell.Tab.0.center" timestamp="1583918347164">
+    <state width="1356" height="188" key="GridCell.Tab.0.center" timestamp="1583941651964">
       <screen x="0" y="23" width="1399" height="877" />
     </state>
     <state width="1356" height="285" key="GridCell.Tab.0.center/0.23.1398.877/-245.-1177.1920.1177@0.23.1398.877" timestamp="1581423402966" />
     <state width="1356" height="230" key="GridCell.Tab.0.center/0.23.1398.877/-258.-1057.1920.1057@0.23.1398.877" timestamp="1581360749207" />
     <state width="1356" height="191" key="GridCell.Tab.0.center/0.23.1399.877/-245.-1177.1920.1177@0.23.1399.877" timestamp="1583399788024" />
-    <state width="1356" height="189" key="GridCell.Tab.0.center/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583918347164" />
+    <state width="1356" height="188" key="GridCell.Tab.0.center/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583941651964" />
     <state width="1356" height="191" key="GridCell.Tab.0.center/0.23.1399.877@0.23.1399.877" timestamp="1583245051968" />
-    <state width="1356" height="189" key="GridCell.Tab.0.left" timestamp="1583918347163">
+    <state width="1356" height="188" key="GridCell.Tab.0.left" timestamp="1583941651956">
       <screen x="0" y="23" width="1399" height="877" />
     </state>
     <state width="1356" height="285" key="GridCell.Tab.0.left/0.23.1398.877/-245.-1177.1920.1177@0.23.1398.877" timestamp="1581423402965" />
     <state width="1356" height="230" key="GridCell.Tab.0.left/0.23.1398.877/-258.-1057.1920.1057@0.23.1398.877" timestamp="1581360749206" />
     <state width="1356" height="191" key="GridCell.Tab.0.left/0.23.1399.877/-245.-1177.1920.1177@0.23.1399.877" timestamp="1583399788024" />
-    <state width="1356" height="189" key="GridCell.Tab.0.left/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583918347163" />
+    <state width="1356" height="188" key="GridCell.Tab.0.left/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583941651956" />
     <state width="1356" height="191" key="GridCell.Tab.0.left/0.23.1399.877@0.23.1399.877" timestamp="1583245051967" />
-    <state width="1356" height="189" key="GridCell.Tab.0.right" timestamp="1583918347164">
+    <state width="1356" height="188" key="GridCell.Tab.0.right" timestamp="1583941651968">
       <screen x="0" y="23" width="1399" height="877" />
     </state>
     <state width="1356" height="285" key="GridCell.Tab.0.right/0.23.1398.877/-245.-1177.1920.1177@0.23.1398.877" timestamp="1581423402966" />
     <state width="1356" height="230" key="GridCell.Tab.0.right/0.23.1398.877/-258.-1057.1920.1057@0.23.1398.877" timestamp="1581360749207" />
     <state width="1356" height="191" key="GridCell.Tab.0.right/0.23.1399.877/-245.-1177.1920.1177@0.23.1399.877" timestamp="1583399788025" />
-    <state width="1356" height="189" key="GridCell.Tab.0.right/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583918347164" />
+    <state width="1356" height="188" key="GridCell.Tab.0.right/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583941651968" />
     <state width="1356" height="191" key="GridCell.Tab.0.right/0.23.1399.877@0.23.1399.877" timestamp="1583245051968" />
     <state width="1356" height="285" key="GridCell.Tab.1.bottom" timestamp="1581423402967">
       <screen x="0" y="23" width="1398" height="877" />
@@ -299,9 +325,9 @@
       <screen x="0" y="23" width="1398" height="877" />
     </state>
     <state x="93" y="55" key="new project wizard/0.23.1398.877/-245.-1177.1920.1177@0.23.1398.877" timestamp="1581423398555" />
-    <state x="364" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1583319413652">
+    <state x="364" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1583931473575">
       <screen x="0" y="23" width="1399" height="877" />
     </state>
-    <state x="364" y="213" width="670" height="676" key="search.everywhere.popup/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583319413652" />
+    <state x="364" y="213" width="670" height="676" key="search.everywhere.popup/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583931473575" />
   </component>
 </project>

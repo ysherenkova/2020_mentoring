@@ -8,11 +8,4 @@
             <class name="ua.mentoring.addressbook.tests.GroupDeletionTests" />
         </classes>
     </test>
-
-    <test name="Contacts">
-        <classes>
-            <class name="ua.mentoring.addressbook.tests.ContactCreationTests" />
-            <class name="ua.mentoring.addressbook.tests.ContactModificationTests" />
-        </classes>
-    </test>
 </suite>
