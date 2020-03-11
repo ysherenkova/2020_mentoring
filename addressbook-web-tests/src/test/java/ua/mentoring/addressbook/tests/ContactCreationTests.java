@@ -7,7 +7,7 @@ import java.io.File;
 
 public class ContactCreationTests extends TestBase {
 
-  @Test(enabled = false)
+  @Test
   public void ContactCreation() {
     applicationManager.goTo().gotoHomePage();
     applicationManager.getContactHelper().initContactCreation();
