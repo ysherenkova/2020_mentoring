@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4f485eb-b6ae-44bf-b315-4b89b8d0a567" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/resources/testng-contacts.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/testng-groups.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/local.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/ua/mentoring/addressbook/Generators/GroupDataGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/ua/mentoring/addressbook/Generators/GroupDataGenerator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/ua/mentoring/addressbook/tests/GroupCreationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/ua/mentoring/addressbook/tests/GroupCreationTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/test/groups.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/test/groups.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/appManager/ApplicationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/appManager/ApplicationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/tests/TestBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ua/mentoring/addressbook/tests/TestBase.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +73,7 @@
       <recent name="$PROJECT_DIR$/src/test/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.">
+  <component name="RunManager" selected="TestNG.ua.mentoring.addressbook">
     <configuration name="GroupDataGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ua.mentoring.addressbook.Generators.GroupDataGenerator" />
       <module name="addressbook-web-tests.test" />
@@ -130,14 +128,24 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration type="TestNG" nameIsGenerated="true">
+    <configuration name="/Users/yuliia_sherenkova/Documents/GitHub/2020_mentoring/addressbook-web-tests/src/test/resources/testng.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="addressbook-web-tests.test" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/testng.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ua.mentoring.addressbook" type="TestNG" nameIsGenerated="true">
       <option name="SUITE_NAME" value="" />
       <option name="PACKAGE_NAME" value="ua.mentoring.addressbook" />
       <option name="MAIN_CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
       <option name="GROUP_NAME" value="" />
       <option name="TEST_OBJECT" value="PACKAGE" />
-      <option name="VM_PARAMETERS" />
+      <option name="VM_PARAMETERS" value="-ea -Dbrowser=firefox" />
       <option name="PARAMETERS" value="" />
       <option name="OUTPUT_DIRECTORY" value="" />
       <option name="TEST_SEARCH_SCOPE">
@@ -150,22 +158,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="/Users/yuliia_sherenkova/Documents/GitHub/2020_mentoring/addressbook-web-tests/src/test/resources/testng.xml" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="addressbook-web-tests.test" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/testng.xml" />
-      <option name="TEST_OBJECT" value="SUITE" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.Unnamed" />
       <item itemvalue="Application.GroupDataGenerator" />
       <item itemvalue="Gradle.GroupCreationTests" />
       <item itemvalue="Gradle.GroupCreationTests.testGroupCreation" />
-      <item itemvalue="TestNG." />
+      <item itemvalue="TestNG.ua.mentoring.addressbook" />
       <item itemvalue="TestNG./Users/yuliia_sherenkova/Documents/GitHub/2020_mentoring/addressbook-web-tests/src/test/resources/testng.xml" />
     </list>
     <recent_temporary>
@@ -214,13 +212,17 @@
       <screen x="0" y="23" width="1399" height="877" />
     </state>
     <state x="382" y="123" key="#Unnamed/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583502364381" />
-    <state x="163" y="125" width="1071" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583917767941">
+    <state x="163" y="125" width="1071" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583920146559">
       <screen x="0" y="23" width="1399" height="877" />
     </state>
     <state x="163" y="125" width="1071" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1398.877/-245.-1177.1920.1177@0.23.1398.877" timestamp="1581420753383" />
     <state x="163" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1398.877/-258.-1057.1920.1057@0.23.1398.877" timestamp="1580899662212" />
     <state x="163" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1398.877@0.23.1398.877" timestamp="1581110383461" />
-    <state x="163" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583917767941" />
+    <state x="163" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583920146559" />
+    <state x="407" y="271" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1583923567544">
+      <screen x="0" y="23" width="1399" height="877" />
+    </state>
+    <state x="407" y="271" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1399.877/-258.-1057.1920.1057@0.23.1399.877" timestamp="1583923567544" />
     <state x="753" y="121" key="#com.intellij.ide.util.MemberChooser" timestamp="1583489353886">
       <screen x="0" y="23" width="1399" height="877" />
     </state>

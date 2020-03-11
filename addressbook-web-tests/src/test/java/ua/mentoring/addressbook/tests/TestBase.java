@@ -5,13 +5,16 @@ import org.testng.annotations.BeforeSuite;
 import ua.mentoring.addressbook.appManager.ApplicationManager;
 import ua.mentoring.addressbook.model.BrowserType;
 
+import java.io.IOException;
+
 public class TestBase {
 
-  protected static final ApplicationManager applicationManager = new ApplicationManager(BrowserType.FIREFOX); //here we can change the browser
+  protected static final ApplicationManager applicationManager
+          = new ApplicationManager(System.getProperty("browser", String.valueOf(BrowserType.CHROME))); //here we can change the browser
 
  // @BeforeMethod
   @BeforeSuite
-  public void setUp() {
+  public void setUp() throws IOException {
     applicationManager.init();
   }
 
