@@ -12,4 +12,7 @@ public interface TestConfig extends Config {
 
   @Key("target.password")
   String targetPassword();
+
+  @Key("photogallery.address")
+  String galleryAddress();
 }
