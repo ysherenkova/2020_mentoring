@@ -14,9 +14,12 @@ public class FileUtils {
 
   private static final int BUFFER_SIZE = 4096;
 
+  static int counter = 1;
+
   public static void downloadAllPhotos(Map<WebElement, String> photos, String storePath) {
+    counter = 1;
     for (Map.Entry<WebElement, String> entry : photos.entrySet()) {
-      try {
+      try { //(и тут внутри объявить поток)
         downloadPhoto(entry.getValue(), storePath);
       } catch (Exception e) {
         System.out.println("ATTENTION! Exception was caught " + e.getMessage());
@@ -28,7 +31,7 @@ public class FileUtils {
   private static void downloadPhoto(String url, String storePath) throws IOException {
  //   System.out.println("Start download " + url);
 
-    if(url ==null){
+    if(url == null){
       System.out.println("Invalid url parameter: null");
     }
 
@@ -43,7 +46,8 @@ public class FileUtils {
       int contentLength = httpConn.getContentLength();
 
       // extracts file name from URL
-      fileName = url.substring(url.lastIndexOf("/") + 1, url.indexOf("?"));
+      fileName = String.valueOf(counter) + ".jpg";
+      counter++;
 
  //     System.out.println("fileName = " + fileName);
 
