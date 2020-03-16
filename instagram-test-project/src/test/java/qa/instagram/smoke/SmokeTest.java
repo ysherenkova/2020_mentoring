@@ -10,6 +10,7 @@ import qa.instagram.pages.SignInPage;
 import qa.instagram.utils.FileUtils;
 import qa.instagram.utils.Navigation;
 
+import java.io.File;
 import java.util.Map;
 
 import static qa.instagram.pages.SignInPage.createSignInPage;
@@ -30,7 +31,7 @@ public class SmokeTest extends BaseTest {
     Map<WebElement, String> allPhotos = myAccountPage.getAllPhotos();
     Assert.assertEquals(allPhotos.size(), myAccountPage.getNumberOfPost());
 
-    FileUtils.downloadAllPhotos(allPhotos, testConfig.galleryAddress());
-    Assert.assertEquals(allPhotos.size(),getNumberOfFilesInGallery(testConfig.galleryAddress()));
+    FileUtils.downloadAllPhotos(allPhotos, (new File (testConfig.galleryAddress())).getAbsolutePath());
+    Assert.assertEquals(allPhotos.size(),getNumberOfFilesInGallery(new File (testConfig.galleryAddress()).getAbsolutePath()));
   }
 }

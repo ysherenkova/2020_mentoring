@@ -53,7 +53,7 @@ public class FileUtils {
 
       // opens input stream from the HTTP connection
       InputStream inputStream = httpConn.getInputStream();
-      String saveFilePath = storePath + fileName;
+      String saveFilePath = storePath + "/" + fileName;
 
       //create a folder if not exist
       (new File(storePath)).mkdirs();
