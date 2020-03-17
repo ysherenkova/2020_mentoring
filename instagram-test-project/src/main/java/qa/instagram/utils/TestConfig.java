@@ -15,4 +15,7 @@ public interface TestConfig extends Config {
 
   @Key("photogallery.address")
   String galleryAddress();
+
+  @Key("numberOfThreads")
+  int numberOfThreads();
 }

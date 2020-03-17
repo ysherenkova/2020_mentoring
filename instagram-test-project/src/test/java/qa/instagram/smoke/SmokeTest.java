@@ -8,7 +8,6 @@ import qa.instagram.pages.MyAccountPage;
 import qa.instagram.pages.MyFeedPage;
 import qa.instagram.pages.SignInPage;
 import qa.instagram.utils.FileUtils;
-import qa.instagram.utils.Navigation;
 
 import java.io.File;
 import java.util.Map;
@@ -26,12 +25,11 @@ public class SmokeTest extends BaseTest {
     MyFeedPage myFeedPage = signInPage.clickSignInButton();
     myFeedPage.turnOffNotifications();
     MyAccountPage myAccountPage = myFeedPage.clickAccountName();
-//    myAccountPage.getAllPhotos();
-    //actual result first
+
     Map<WebElement, String> allPhotos = myAccountPage.getAllPhotos();
     Assert.assertEquals(allPhotos.size(), myAccountPage.getNumberOfPost());
 
-    FileUtils.downloadAllPhotos(allPhotos, (new File (testConfig.galleryAddress())).getAbsolutePath());
-    Assert.assertEquals(allPhotos.size(),getNumberOfFilesInGallery(new File (testConfig.galleryAddress()).getAbsolutePath()));
+    FileUtils.downloadAllPhotos(allPhotos, (new File (testConfig.galleryAddress())).getAbsolutePath(), testConfig.numberOfThreads());
+   // Assert.assertEquals(allPhotos.size(),getNumberOfFilesInGallery(new File (testConfig.galleryAddress()).getAbsolutePath()));
   }
 }

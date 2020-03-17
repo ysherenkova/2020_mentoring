@@ -9,29 +9,50 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class FileUtils {
 
   private static final int BUFFER_SIZE = 4096;
 
-  static int counter = 1;
+  static AtomicInteger counter = new AtomicInteger(1);
 
-  public static void downloadAllPhotos(Map<WebElement, String> photos, String storePath) {
-    counter = 1;
+  public static void downloadAllPhotos(Map<WebElement, String> photos, String storePath, int numberOfThreads) {
+    counter.set(0);
+    ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(numberOfThreads);
+
     for (Map.Entry<WebElement, String> entry : photos.entrySet()) {
-      try { //(и тут внутри объявить поток)
-        downloadPhoto(entry.getValue(), storePath);
-      } catch (Exception e) {
-        System.out.println("ATTENTION! Exception was caught " + e.getMessage());
-      }
+      executor.submit(new Runnable() {
+        @Override
+        public void run() {
+          try {
+            int name = counter.incrementAndGet();
+
+            downloadPhoto(entry.getValue(), storePath, String.valueOf(name));
+          } catch (Exception e) {
+            System.out.println("ATTENTION! Exception was caught " + e.getMessage());
+            e.printStackTrace();
+          }
+        }
+      });
+    }
+    executor.shutdown();
+    try {
+      executor.awaitTermination(600, TimeUnit.SECONDS);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
     }
   }
 
 
-  private static void downloadPhoto(String url, String storePath) throws IOException {
- //   System.out.println("Start download " + url);
+  private static void downloadPhoto(String url, String storePath, String fname) throws IOException {
+    //   System.out.println("Start download " + url);
 
-    if(url == null){
+    System.out.println("start download photo " +counter.get());
+    if (url == null) {
       System.out.println("Invalid url parameter: null");
     }
 
@@ -46,10 +67,9 @@ public class FileUtils {
       int contentLength = httpConn.getContentLength();
 
       // extracts file name from URL
-      fileName = String.valueOf(counter) + ".jpg";
-      counter++;
+      fileName = fname + ".jpg";
 
- //     System.out.println("fileName = " + fileName);
+      //     System.out.println("fileName = " + fileName);
 
       // opens input stream from the HTTP connection
       InputStream inputStream = httpConn.getInputStream();
@@ -74,7 +94,7 @@ public class FileUtils {
   }
 
   public static int getNumberOfFilesInGallery(String galleryAddress) {
-  File files = new File(galleryAddress);
-  return files.list().length;
+    File files = new File(galleryAddress);
+    return files.list().length;
   }
 }
