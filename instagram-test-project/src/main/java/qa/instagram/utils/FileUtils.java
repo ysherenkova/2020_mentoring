@@ -48,6 +48,9 @@ public class FileUtils {
   }
 
 
+
+
+
   private static void downloadPhoto(String url, String storePath, String fname) throws IOException {
     //   System.out.println("Start download " + url);
 
@@ -70,31 +73,27 @@ public class FileUtils {
       fileName = fname + ".jpg";
 
       //     System.out.println("fileName = " + fileName);
-
-      // opens input stream from the HTTP connection
-      InputStream inputStream = httpConn.getInputStream();
       String saveFilePath = storePath + "/" + fileName;
 
-      //create a folder if not exist
-      (new File(storePath)).mkdirs();
+      // opens input stream from the HTTP connection
+      try (InputStream inputStream = httpConn.getInputStream();
+           FileOutputStream outputStream = new FileOutputStream(saveFilePath)) {
+        //create a folder if not exist
+        (new File(storePath)).mkdirs();
 
-      // opens an output stream to save into file
-      FileOutputStream outputStream = new FileOutputStream(saveFilePath);
+        // opens an output stream to save into file
 
-      int bytesRead = -1;
-      byte[] buffer = new byte[BUFFER_SIZE];
-      while ((bytesRead = inputStream.read(buffer)) != -1) {
-        outputStream.write(buffer, 0, bytesRead);
+        int bytesRead = -1;
+        byte[] buffer = new byte[BUFFER_SIZE];
+        while ((bytesRead = inputStream.read(buffer)) != -1) {
+          outputStream.write(buffer, 0, bytesRead);
+        }
+        httpConn.disconnect();
       }
-
-      outputStream.close();
-      inputStream.close();
-      httpConn.disconnect();
     }
   }
 
   public static int getNumberOfFilesInGallery(String galleryAddress) {
-    File files = new File(galleryAddress);
-    return files.list().length;
+    return new File(galleryAddress).list().length;
   }
 }
