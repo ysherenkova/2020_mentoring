@@ -18,10 +18,8 @@ public class FileUtils {
 
   private static final int BUFFER_SIZE = 4096;
 
-  static AtomicInteger counter = new AtomicInteger(1);
 
   public static void downloadAllPhotos(Map<WebElement, String> photos, String storePath, int numberOfThreads) {
-    counter.set(0);
     ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(numberOfThreads);
 
     for (Map.Entry<WebElement, String> entry : photos.entrySet()) {
