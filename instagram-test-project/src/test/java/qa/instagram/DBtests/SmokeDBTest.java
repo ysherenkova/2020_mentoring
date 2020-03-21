@@ -1,23 +1,23 @@
-package qa.instagram.smoke;
+package qa.instagram.DBtests;
 
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.WebElement;
-import qa.instagram.BaseTest;
 import qa.instagram.pages.MyAccountPage;
 import qa.instagram.pages.MyFeedPage;
 import qa.instagram.pages.SignInPage;
-import qa.instagram.utils.FileUtils;
+import qa.instagram.utils.TestConfig;
 
-import java.io.File;
 import java.util.Map;
 
 import static qa.instagram.pages.SignInPage.createSignInPage;
 
-public class SmokeTest extends BaseTest {
+public class SmokeDBTest extends BaseTest {
+  protected TestConfig testConfig = ConfigFactory.create(TestConfig.class);
 
   @Test
-  public void loginTest() {
+  public void connectionTest() {
     SignInPage signInPage = createSignInPage();
     signInPage.setLogin(testConfig.targetAccount());
     signInPage.setPassword(testConfig.targetPassword());
@@ -28,7 +28,6 @@ public class SmokeTest extends BaseTest {
     Map<WebElement, String> allPhotos = myAccountPage.getAllPhotos();
     Assert.assertEquals(allPhotos.size(), myAccountPage.getNumberOfPost());
 
-    FileUtils.downloadAllPhotos(allPhotos, (new File (testConfig.galleryAddress())).getAbsolutePath(), testConfig.numberOfThreads());
-   // Assert.assertEquals(allPhotos.size(),getNumberOfFilesInGallery(new File (testConfig.galleryAddress()).getAbsolutePath()));
+
   }
 }
