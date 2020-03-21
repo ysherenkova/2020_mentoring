@@ -8,16 +8,16 @@ import qa.instagram.utils.TestConfig;
 
 
 public class BaseTest {
-  protected TestConfig testConfig = ConfigFactory.create(TestConfig.class);
+  protected static TestConfig testConfig = ConfigFactory.create(TestConfig.class);
 
   @BeforeClass
-  public void beforeMethod() {
+  public static void beforeMethod() {
     WebDriverFactory.driverInit();
     WebDriverFactory.getDriver().get(testConfig.siteUrl()); //get = open page
   }
 
   @AfterClass//(alwaysRun = true)
-  public void afterMethod() {
+  public static void afterMethod() {
     WebDriverFactory.tearDown();
   }
 }
