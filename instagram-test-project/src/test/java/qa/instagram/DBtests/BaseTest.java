@@ -15,7 +15,7 @@ import java.sql.Statement;
 
 public class BaseTest {
   static String dbName = "InstagramDB";
-  protected TestConfig testConfig = ConfigFactory.create(TestConfig.class);
+  protected static TestConfig testConfig = ConfigFactory.create(TestConfig.class);
 
 
   @ClassRule
@@ -24,6 +24,11 @@ public class BaseTest {
 
   @BeforeClass
   public static void beforeMethod() {
+    //driver
+    WebDriverFactory.driverInit();
+    WebDriverFactory.getDriver().get(testConfig.siteUrl()); //get = open page
+
+    //db
     Connection connection;
     Statement statement;
 
