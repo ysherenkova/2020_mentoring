@@ -1,9 +1,12 @@
 package qa.instagram.DBtests;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Rule;
+import org.aeonbits.owner.ConfigFactory;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.ClassRule;
 import org.testcontainers.containers.MariaDBContainer;
+import qa.instagram.core.WebDriverFactory;
+import qa.instagram.utils.TestConfig;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,14 +14,16 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class BaseTest {
-  String dbName = "InstagramDB";
+  static String dbName = "InstagramDB";
+  protected TestConfig testConfig = ConfigFactory.create(TestConfig.class);
 
-  @Rule
-  public MariaDBContainer mariaDB = new MariaDBContainer()
+
+  @ClassRule
+  public static MariaDBContainer mariaDB = new MariaDBContainer()
           .withDatabaseName(dbName);
 
-  @Before
-  public void beforeMethod() {
+  @BeforeClass
+  public static void beforeMethod() {
     Connection connection;
     Statement statement;
 
@@ -36,8 +41,9 @@ public class BaseTest {
 
   }
 
-  @After
-  public void afterMethod() {
+  @AfterClass
+  public static void afterMethod() {
+    WebDriverFactory.tearDown();
 
   }
 }

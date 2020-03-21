@@ -6,6 +6,7 @@ import org.junit.BeforeClass;
 import qa.instagram.core.WebDriverFactory;
 import qa.instagram.utils.TestConfig;
 
+
 public class BaseTest {
   protected TestConfig testConfig = ConfigFactory.create(TestConfig.class);
 
