@@ -18,4 +18,10 @@ public interface TestConfig extends Config {
 
   @Key("numberOfThreads")
   int numberOfThreads();
+
+  @Key("dbName")
+  String databaseName();
+
+  @Key("tableName")
+  String tableName();
 }

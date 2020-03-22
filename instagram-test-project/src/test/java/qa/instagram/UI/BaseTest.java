@@ -1,22 +1,23 @@
-package qa.instagram;
+package qa.instagram.UI;
 
 import org.aeonbits.owner.ConfigFactory;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import qa.instagram.core.WebDriverFactory;
 import qa.instagram.utils.TestConfig;
 
-public class BaseTest {
-  protected TestConfig testConfig = ConfigFactory.create(TestConfig.class);
 
-  @BeforeMethod
-  public void beforeMethod() {
+public class BaseTest {
+  protected static TestConfig testConfig = ConfigFactory.create(TestConfig.class);
+
+  @BeforeClass
+  public static void beforeMethod() {
     WebDriverFactory.driverInit();
     WebDriverFactory.getDriver().get(testConfig.siteUrl()); //get = open page
   }
 
-  @AfterMethod (alwaysRun = true)
-  public void afterMethod() {
+  @AfterClass//(alwaysRun = true)
+  public static void afterMethod() {
     WebDriverFactory.tearDown();
   }
 }
