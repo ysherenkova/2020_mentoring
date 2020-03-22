@@ -16,5 +16,8 @@ dependencies {
     compile group: 'org.aeonbits.owner', name: 'owner-java8', version: '1.0.10'
     testCompile "org.testcontainers:testcontainers:1.13.0"
     testCompile "org.testcontainers:mariadb:1.13.0"
+    compile "org.testcontainers:testcontainers:1.13.0"
+    compile "org.testcontainers:mariadb:1.13.0"
     compile group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.6.0'
+    compile group: 'org.springframework', name: 'spring-jdbc', version: '5.2.4.RELEASE'
 }

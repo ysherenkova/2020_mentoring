@@ -25,8 +25,9 @@ public class MyAccountPage {
     while (elements.size() < number) {
       WebDriverFactory.getDriver().findElements(By.xpath("//div[@class = 'KL4Bh']/img"))
               .forEach(webElement -> {
-                if (!elements.containsKey(webElement))
+                if (!elements.containsKey(webElement)) {
                   elements.put(webElement, webElement.getAttribute("src"));
+                }
               });
       Navigation.scrollDown();
     }
