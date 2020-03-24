@@ -62,6 +62,11 @@ public class DBManager {
     jdbcTemplate.execute(sqlQuery);
   }
 
+  public byte[] getImageArray(String sqlQuery) {
+    byte[] resultfromDB = jdbcTemplate.queryForObject(sqlQuery, (rs, rowNum) -> rs.getBytes(1));
+    return resultfromDB;
+  }
+
   public int getCountOfDBRecords() {
     RowCountCallbackHandler countCallback = new RowCountCallbackHandler();  // not reusable
     jdbcTemplate.query("select * from " + testConfig.tableName(), countCallback);

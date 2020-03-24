@@ -34,9 +34,6 @@ public class SmokeTest extends BaseTest {
     //сравнить количество
     Assert.assertEquals(
             myAccountPage.getNumberOfPost(),
-            DBManager.getInstance().getCountOfDBRecords()
-    );
-
-
+            DBManager.getInstance().getCountOfDBRecords());
   }
 }

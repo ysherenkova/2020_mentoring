@@ -1,5 +1,7 @@
 package qa.instagram.utils;
 
+import org.aeonbits.owner.ConfigFactory;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import qa.instagram.dataTransferObjects.InstagramImageDTO;
 
@@ -7,6 +9,7 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -18,12 +21,14 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class DownloaderUtils {
 
   private static final int BUFFER_SIZE = 4096;
-
-
+  private static AtomicInteger counter = new AtomicInteger(0);
   static List<InstagramImageDTO> dtosToSave = new ArrayList<InstagramImageDTO>();
+  protected static TestConfig testConfig = ConfigFactory.create(TestConfig.class);
+
 
   public static void downloadAllPhotos(Map<WebElement, String> photos, String storePath, int numberOfThreads) {
     ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(numberOfThreads);
+    counter.set(0);
 
     for (Map.Entry<WebElement, String> entry : photos.entrySet()) {
       executor.submit(() -> {
@@ -48,7 +53,11 @@ public class DownloaderUtils {
       e.printStackTrace();
     }
 
-    storePhotosToDatabase();
+    try {
+      storePhotosToDatabase();
+    } catch (NoSuchAlgorithmException e) {
+      e.printStackTrace();
+    }
   }
 
 
@@ -134,10 +143,15 @@ public class DownloaderUtils {
 //    }
 //  }
 
-  private static void storePhotosToDatabase() {
+  private static void storePhotosToDatabase() throws NoSuchAlgorithmException {
     for (InstagramImageDTO dto : dtosToSave) {
       System.out.println("Storing " + dto.getId() + ", size=" + dto.getImage().length);
+      String hashSumOfDTO = HashSumCalculator.SHAsum(dto.getImage());
       DBManager.getInstance().insertDtoToDb(dto);
+      String hashSumOfBLOB =
+              HashSumCalculator.SHAsum(DBManager.getInstance()
+                      .getImageArray("SELECT image from " + testConfig.tableName() + " WHERE id='" + dto.getId() + "'"));
+      Assert.assertEquals(hashSumOfDTO, hashSumOfBLOB);
     }
   }
 
