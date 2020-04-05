@@ -8,7 +8,7 @@ import qa.instagram.utils.TestConfig;
 
 
 public class BaseTest {
-  protected static TestConfig testConfig = ConfigFactory.create(TestConfig.class);
+  protected static final TestConfig testConfig = ConfigFactory.create(TestConfig.class);
 
   @BeforeClass
   public static void beforeMethod() {

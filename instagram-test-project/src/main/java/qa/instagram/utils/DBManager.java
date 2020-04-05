@@ -12,9 +12,7 @@ public class DBManager {
   private static DBManager instance;
 
   private static TestConfig testConfig = ConfigFactory.create(TestConfig.class);
-  private static DriverManagerDataSource dataSource;
   private static JdbcTemplate jdbcTemplate;
-  private static MariaDBContainer mariaDBContainer;
 
   public String getDataBaseName() {
     return testConfig.databaseName();
@@ -25,7 +23,6 @@ public class DBManager {
   }
 
   public static void initDb(MariaDBContainer container) {
-    mariaDBContainer = container;
     //setup container
     //   String connString = mariaDBContainer.getJdbcUrl()
     //           + "?user=" + mariaDBContainer.getUsername()
@@ -33,17 +30,13 @@ public class DBManager {
     //           + mariaDBContainer.getPassword();
 
     //setup datasource
-    dataSource = new DriverManagerDataSource();
+    DriverManagerDataSource dataSource = new DriverManagerDataSource();
     dataSource.setDriverClassName("org.mariadb.jdbc.Driver");
-    dataSource.setUsername(mariaDBContainer.getUsername());
-    dataSource.setPassword(mariaDBContainer.getPassword());
-    dataSource.setUrl(mariaDBContainer.getJdbcUrl());
+    dataSource.setUsername(container.getUsername());
+    dataSource.setPassword(container.getPassword());
+    dataSource.setUrl(container.getJdbcUrl());
 
     jdbcTemplate = new JdbcTemplate(dataSource);
-  }
-
-  public JdbcTemplate getJdbcTemplate() {
-    return jdbcTemplate;
   }
 
   public static DBManager getInstance() {
@@ -53,25 +46,19 @@ public class DBManager {
     return instance;
   }
 
-  public static DriverManagerDataSource getDataSource() {
-    return dataSource;
-  }
-
 
   public void executeQuery(String sqlQuery) {
     jdbcTemplate.execute(sqlQuery);
   }
 
   public byte[] getImageArray(String sqlQuery) {
-    byte[] resultfromDB = jdbcTemplate.queryForObject(sqlQuery, (rs, rowNum) -> rs.getBytes(1));
-    return resultfromDB;
+    return jdbcTemplate.queryForObject(sqlQuery, (rs, rowNum) -> rs.getBytes(1));
   }
 
   public int getCountOfDBRecords() {
     RowCountCallbackHandler countCallback = new RowCountCallbackHandler();  // not reusable
     jdbcTemplate.query("select * from " + testConfig.tableName(), countCallback);
-    int rowCount = countCallback.getRowCount();
-    return rowCount;
+    return countCallback.getRowCount();
   }
 
   public void createTable(String name) {

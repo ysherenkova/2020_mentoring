@@ -11,9 +11,9 @@ import qa.instagram.utils.TestConfig;
 
 public class BaseTest {
   @ClassRule
-  public static MariaDBContainer mariaDB = new MariaDBContainer()
+  public static final MariaDBContainer mariaDB = new MariaDBContainer()
           .withDatabaseName(DBManager.getInstance().getDataBaseName());
-  protected static TestConfig testConfig = ConfigFactory.create(TestConfig.class);
+  protected static final TestConfig testConfig = ConfigFactory.create(TestConfig.class);
 
   @BeforeClass
   public static void beforeMethod() {

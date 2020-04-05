@@ -12,6 +12,7 @@ import java.io.File;
 import java.util.Map;
 
 import static qa.instagram.pages.SignInPage.createSignInPage;
+import static qa.instagram.utils.DownloaderUtils.getNumberOfFilesInGallery;
 
 public class SmokeTest extends BaseTest {
 
@@ -28,6 +29,9 @@ public class SmokeTest extends BaseTest {
     Assert.assertEquals(allPhotos.size(), myAccountPage.getNumberOfPost());
 
     DownloaderUtils.downloadAllPhotos(allPhotos, (new File(testConfig.galleryAddress())).getAbsolutePath(), testConfig.numberOfThreads());
-   // Assert.assertEquals(allPhotos.size(),getNumberOfFilesInGallery(new File (testConfig.galleryAddress()).getAbsolutePath()));
+    Assert.assertEquals(
+            allPhotos.size(),
+            getNumberOfFilesInGallery(new File(testConfig.galleryAddress()).getAbsolutePath())
+    );
   }
 }

@@ -3,9 +3,9 @@ package qa.instagram.dataTransferObjects;
 import java.util.Date;
 
 public class InstagramImageDTO {
-  String id;
-  long timestamp;
-  byte[] image;
+  final String id;
+  final long timestamp;
+  final byte[] image;
 
   public InstagramImageDTO(String id, byte[] content) {
     this.id = id;

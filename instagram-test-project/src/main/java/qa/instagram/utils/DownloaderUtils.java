@@ -13,6 +13,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -21,9 +22,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class DownloaderUtils {
 
   private static final int BUFFER_SIZE = 4096;
-  private static AtomicInteger counter = new AtomicInteger(0);
-  static List<InstagramImageDTO> dtosToSave = new ArrayList<InstagramImageDTO>();
-  protected static TestConfig testConfig = ConfigFactory.create(TestConfig.class);
+  private static final AtomicInteger counter = new AtomicInteger(0);
+  static final List<InstagramImageDTO> dtosToSave = new ArrayList<>();
+  protected static final TestConfig testConfig = ConfigFactory.create(TestConfig.class);
 
 
   public static void downloadAllPhotos(Map<WebElement, String> photos, String storePath, int numberOfThreads) {
@@ -67,6 +68,7 @@ public class DownloaderUtils {
     System.out.println("start download photo " +counter.get());
     if (url == null) {
       System.out.println("Invalid url parameter: null");
+      return;
     }
 
     URL realUrl = new URL(url);
@@ -75,12 +77,12 @@ public class DownloaderUtils {
 
     // always check HTTP response code first
     if (responseCode == HttpURLConnection.HTTP_OK) {
-      String fileName = "";
-      String contentType = httpConn.getContentType();
-      int contentLength = httpConn.getContentLength();
+//      String contentType = httpConn.getContentType();
+//      int contentLength = httpConn.getContentLength();
+// todo remove
 
       // extracts file name from URL
-      fileName = fname + ".jpg";
+      String fileName = fname + ".jpg";
 
       //     System.out.println("fileName = " + fileName);
       String saveFilePath = storePath + "/" + fileName;
@@ -89,11 +91,12 @@ public class DownloaderUtils {
       try (InputStream inputStream = httpConn.getInputStream();
            FileOutputStream outputStream = new FileOutputStream(saveFilePath)) {
         //create a folder if not exist
+        //noinspection ResultOfMethodCallIgnored
         (new File(storePath)).mkdirs();
 
         // opens an output stream to save into file
 
-        int bytesRead = -1;
+        int bytesRead;
         byte[] buffer = new byte[BUFFER_SIZE];
         while ((bytesRead = inputStream.read(buffer)) != -1) {
           outputStream.write(buffer, 0, bytesRead);
@@ -134,7 +137,7 @@ public class DownloaderUtils {
   }
 
   public static int getNumberOfFilesInGallery(String galleryAddress) {
-    return new File(galleryAddress).list().length;
+    return Objects.requireNonNull(new File(galleryAddress).list()).length;
   }
 
 //  public static void downloadAllPhotosToDB(Map<WebElement, String> photos) {

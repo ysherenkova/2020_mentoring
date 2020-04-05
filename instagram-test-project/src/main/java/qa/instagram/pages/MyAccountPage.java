@@ -11,6 +11,7 @@ import java.util.Map;
 
 public class MyAccountPage {
 
+  @SuppressWarnings("unused")
   @FindBy(xpath = "//*[@id=\"react-root\"]/section/main/div/header/section/ul/li[1]/span/span")
   WebElement numberOfPosts;
 
