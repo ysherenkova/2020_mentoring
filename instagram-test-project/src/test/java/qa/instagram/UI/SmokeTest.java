@@ -6,13 +6,10 @@ import org.openqa.selenium.WebElement;
 import qa.instagram.pages.MyAccountPage;
 import qa.instagram.pages.MyFeedPage;
 import qa.instagram.pages.SignInPage;
-import qa.instagram.utils.DownloadUtils;
 
-import java.io.File;
 import java.util.Map;
 
 import static qa.instagram.pages.SignInPage.createSignInPage;
-import static qa.instagram.utils.DownloadUtils.getNumberOfFilesInGallery;
 
 public class SmokeTest extends BaseTest {
 
@@ -28,10 +25,11 @@ public class SmokeTest extends BaseTest {
     Map<WebElement, String> allPhotos = myAccountPage.getAllPhotos();
     Assert.assertEquals(allPhotos.size(), myAccountPage.getNumberOfPost());
 
-    DownloadUtils.downloadAllPhotos(allPhotos, (new File(testConfig.galleryAddress())).getAbsolutePath(), testConfig.photoDownloaderThreadLimit());
-    Assert.assertEquals(
-            allPhotos.size(),
-            getNumberOfFilesInGallery(new File(testConfig.galleryAddress()).getAbsolutePath())
-    );
+    // TODO uncomment, tranfer storeToFs() and storeToDB() from DBtest to common entity
+//    DownloadUtils.downloadAllPhotos(allPhotos, (new File(testConfig.galleryAddress())).getAbsolutePath(), testConfig.photoDownloaderThreadLimit());
+//    Assert.assertEquals(
+//            allPhotos.size(),
+//            getNumberOfFilesInGallery(new File(testConfig.galleryAddress()).getAbsolutePath())
+//    );
   }
 }

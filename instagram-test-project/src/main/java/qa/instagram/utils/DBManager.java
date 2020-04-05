@@ -5,7 +5,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowCountCallbackHandler;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.testcontainers.containers.MariaDBContainer;
-import qa.instagram.dataTransferObjects.InstagramImageDTO;
 
 public class DBManager {
 
@@ -35,6 +34,10 @@ public class DBManager {
     jdbcTemplate = new JdbcTemplate(dataSource);
   }
 
+  public JdbcTemplate getJdbcTemplate() {
+    return jdbcTemplate;
+  }
+
   public String getDataBaseName() {
     return testConfig.databaseName();
   }
@@ -56,13 +59,5 @@ public class DBManager {
   public void createTable(String name) {
     executeQuery("DROP TABLE IF EXISTS " + name);
     executeQuery("CREATE TABLE " + name + " (id VARCHAR(100), timestamp LONG, image BLOB(999999))");
-  }
-
-  // todo DAL
-  public void insertPhoto(InstagramImageDTO dto) {
-    System.out.println("jdbc=" + jdbcTemplate);
-    jdbcTemplate.update(
-            "INSERT INTO " + testConfig.photosTableName() + " (id, timestamp, image) VALUES (?, ?, ?)",
-            dto.getId(), dto.getTimestamp(), dto.getImage());
   }
 }
