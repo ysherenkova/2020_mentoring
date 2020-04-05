@@ -22,7 +22,6 @@ public class SignInPage {
     return PageFactory.initElements(WebDriverFactory.getDriver(), SignInPage.class);
   }
 
-
   @SuppressWarnings("UnusedReturnValue")
   public SignInPage setLogin(String login) {
     this.login.sendKeys(login);

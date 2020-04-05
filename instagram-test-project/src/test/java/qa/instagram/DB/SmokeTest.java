@@ -7,7 +7,7 @@ import qa.instagram.pages.MyAccountPage;
 import qa.instagram.pages.MyFeedPage;
 import qa.instagram.pages.SignInPage;
 import qa.instagram.utils.DBManager;
-import qa.instagram.utils.DownloaderUtils;
+import qa.instagram.utils.DownloadUtils;
 
 import java.io.File;
 import java.util.Map;
@@ -29,11 +29,11 @@ public class SmokeTest extends BaseTest {
     Map<WebElement, String> allPhotos = myAccountPage.getAllPhotos();
     Assert.assertEquals(allPhotos.size(), myAccountPage.getNumberOfPost());
 
-    DownloaderUtils.downloadAllPhotos(allPhotos, (new File(testConfig.galleryAddress())).getAbsolutePath(), testConfig.numberOfThreads());
+    DownloadUtils.downloadAllPhotos(allPhotos, (new File(testConfig.galleryAddress())).getAbsolutePath(), testConfig.photoDownloaderThreadLimit());
 
     //сравнить количество
     Assert.assertEquals(
             myAccountPage.getNumberOfPost(),
-            DBManager.getInstance().getCountOfDBRecords());
+            DBManager.getInstance().getCountOfDBRecords(testConfig.photosTableName()));
   }
 }

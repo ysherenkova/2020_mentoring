@@ -16,12 +16,12 @@ public interface TestConfig extends Config {
   @Key("photogallery.address")
   String galleryAddress();
 
-  @Key("numberOfThreads")
-  int numberOfThreads();
+  @Key("photoDownloaderThreadLimit")
+  int photoDownloaderThreadLimit();
 
   @Key("dbName")
   String databaseName();
 
-  @Key("tableName")
-  String tableName();
+  @Key("photosTableName")
+  String photosTableName();
 }

@@ -7,10 +7,10 @@ import qa.instagram.core.WebDriverFactory;
 
 import java.time.Duration;
 
-public class WaitUtils {
+public class WebElementUtils {
 
   public static WebElement waitTillAvailable(WebElement element) {
-    return new WebDriverWait(WebDriverFactory.getDriver(),5)
+    return new WebDriverWait(WebDriverFactory.getDriver(), 5)
             .pollingEvery(Duration.ofSeconds(1))
             .until(ExpectedConditions.visibilityOf(element));
   }

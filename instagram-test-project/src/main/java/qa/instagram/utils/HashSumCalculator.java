@@ -6,7 +6,7 @@ import java.util.Formatter;
 
 public class HashSumCalculator {
 
-  public static String SHAsum(byte[] convertme) throws NoSuchAlgorithmException {
+  public static String shaSum(byte[] convertme) throws NoSuchAlgorithmException {
     MessageDigest md = MessageDigest.getInstance("SHA-1");
     return byteArray2Hex(md.digest(convertme));
   }
@@ -18,5 +18,4 @@ public class HashSumCalculator {
     }
     return formatter.toString();
   }
-
 }

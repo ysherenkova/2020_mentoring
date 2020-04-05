@@ -19,22 +19,22 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class DownloaderUtils {
+public class DownloadUtils {
 
   private static final int BUFFER_SIZE = 4096;
-  private static final AtomicInteger counter = new AtomicInteger(0);
-  static final List<InstagramImageDTO> dtosToSave = new ArrayList<>();
+  private static final AtomicInteger photoNameCounter = new AtomicInteger(0);
+  private static final List<InstagramImageDTO> dtosToSave = new ArrayList<>();
   protected static final TestConfig testConfig = ConfigFactory.create(TestConfig.class);
 
 
   public static void downloadAllPhotos(Map<WebElement, String> photos, String storePath, int numberOfThreads) {
     ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(numberOfThreads);
-    counter.set(0);
+    photoNameCounter.set(0);
 
     for (Map.Entry<WebElement, String> entry : photos.entrySet()) {
       executor.submit(() -> {
         try {
-          int name = counter.incrementAndGet();
+          int name = photoNameCounter.incrementAndGet();
 
           // store to file system
           downloadPhoto(entry.getValue(), storePath, String.valueOf(name));
@@ -65,7 +65,7 @@ public class DownloaderUtils {
   private static void downloadPhoto(String url, String storePath, String fname) throws IOException {
     //   System.out.println("Start download " + url);
 
-    System.out.println("start download photo " +counter.get());
+    System.out.println("start download photo " + photoNameCounter.get());
     if (url == null) {
       System.out.println("Invalid url parameter: null");
       return;
@@ -149,11 +149,11 @@ public class DownloaderUtils {
   private static void storePhotosToDatabase() throws NoSuchAlgorithmException {
     for (InstagramImageDTO dto : dtosToSave) {
       System.out.println("Storing " + dto.getId() + ", size=" + dto.getImage().length);
-      String hashSumOfDTO = HashSumCalculator.SHAsum(dto.getImage());
-      DBManager.getInstance().insertDtoToDb(dto);
+      String hashSumOfDTO = HashSumCalculator.shaSum(dto.getImage());
+      DBManager.getInstance().insertPhoto(dto);
       String hashSumOfBLOB =
-              HashSumCalculator.SHAsum(DBManager.getInstance()
-                      .getImageArray("SELECT image from " + testConfig.tableName() + " WHERE id='" + dto.getId() + "'"));
+              HashSumCalculator.shaSum(DBManager.getInstance()
+                      .getImageArray("SELECT image from " + testConfig.photosTableName() + " WHERE id='" + dto.getId() + "'"));
       Assert.assertEquals(hashSumOfDTO, hashSumOfBLOB);
     }
   }

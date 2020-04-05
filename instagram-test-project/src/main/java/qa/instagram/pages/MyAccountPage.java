@@ -15,12 +15,11 @@ public class MyAccountPage {
   @FindBy(xpath = "//*[@id=\"react-root\"]/section/main/div/header/section/ul/li[1]/span/span")
   WebElement numberOfPosts;
 
-
-  public int getNumberOfPost () {
+  public int getNumberOfPost() {
     return Integer.parseInt(numberOfPosts.getText());
   }
 
-  public Map<WebElement, String> getAllPhotos () {
+  public Map<WebElement, String> getAllPhotos() {
     Map<WebElement, String> elements = new HashMap<>();
     int number = getNumberOfPost();
     while (elements.size() < number) {
@@ -32,8 +31,6 @@ public class MyAccountPage {
               });
       Navigation.scrollDown();
     }
-  return elements;
-}
-
-
+    return elements;
+  }
 }

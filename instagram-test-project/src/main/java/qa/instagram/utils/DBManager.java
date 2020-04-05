@@ -14,29 +14,8 @@ public class DBManager {
   private static TestConfig testConfig = ConfigFactory.create(TestConfig.class);
   private static JdbcTemplate jdbcTemplate;
 
-  public String getDataBaseName() {
-    return testConfig.databaseName();
-  }
-
   private DBManager() {
     testConfig = ConfigFactory.create(TestConfig.class);
-  }
-
-  public static void initDb(MariaDBContainer container) {
-    //setup container
-    //   String connString = mariaDBContainer.getJdbcUrl()
-    //           + "?user=" + mariaDBContainer.getUsername()
-    //           + "&password="
-    //           + mariaDBContainer.getPassword();
-
-    //setup datasource
-    DriverManagerDataSource dataSource = new DriverManagerDataSource();
-    dataSource.setDriverClassName("org.mariadb.jdbc.Driver");
-    dataSource.setUsername(container.getUsername());
-    dataSource.setPassword(container.getPassword());
-    dataSource.setUrl(container.getJdbcUrl());
-
-    jdbcTemplate = new JdbcTemplate(dataSource);
   }
 
   public static DBManager getInstance() {
@@ -46,6 +25,19 @@ public class DBManager {
     return instance;
   }
 
+  public static void initJdbcTemplate(MariaDBContainer container) {
+    DriverManagerDataSource dataSource = new DriverManagerDataSource();
+    dataSource.setDriverClassName("org.mariadb.jdbc.Driver");
+    dataSource.setUsername(container.getUsername());
+    dataSource.setPassword(container.getPassword());
+    dataSource.setUrl(container.getJdbcUrl());
+
+    jdbcTemplate = new JdbcTemplate(dataSource);
+  }
+
+  public String getDataBaseName() {
+    return testConfig.databaseName();
+  }
 
   public void executeQuery(String sqlQuery) {
     jdbcTemplate.execute(sqlQuery);
@@ -55,21 +47,22 @@ public class DBManager {
     return jdbcTemplate.queryForObject(sqlQuery, (rs, rowNum) -> rs.getBytes(1));
   }
 
-  public int getCountOfDBRecords() {
-    RowCountCallbackHandler countCallback = new RowCountCallbackHandler();  // not reusable
-    jdbcTemplate.query("select * from " + testConfig.tableName(), countCallback);
+  public int getCountOfDBRecords(String tableName) {
+    RowCountCallbackHandler countCallback = new RowCountCallbackHandler();
+    jdbcTemplate.query("SELECT * FROM " + tableName, countCallback);
     return countCallback.getRowCount();
   }
 
   public void createTable(String name) {
     executeQuery("DROP TABLE IF EXISTS " + name);
-    executeQuery("create table " + name + " (id VARCHAR(100), timestamp LONG, image BLOB(999999))");
+    executeQuery("CREATE TABLE " + name + " (id VARCHAR(100), timestamp LONG, image BLOB(999999))");
   }
 
-  public void insertDtoToDb(InstagramImageDTO dto) {
+  // todo DAL
+  public void insertPhoto(InstagramImageDTO dto) {
     System.out.println("jdbc=" + jdbcTemplate);
     jdbcTemplate.update(
-            "INSERT INTO " + testConfig.tableName() + " (id, timestamp, image) VALUES (?, ?, ?)",
+            "INSERT INTO " + testConfig.photosTableName() + " (id, timestamp, image) VALUES (?, ?, ?)",
             dto.getId(), dto.getTimestamp(), dto.getImage());
   }
 }

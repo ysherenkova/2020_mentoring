@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import qa.instagram.core.WebDriverFactory;
-import qa.instagram.utils.WaitUtils;
+import qa.instagram.utils.WebElementUtils;
 
 @SuppressWarnings("unused")
 public class MyFeedPage {
@@ -12,16 +12,15 @@ public class MyFeedPage {
   WebElement accountName;
 
   @FindBy(xpath = "/html/body/div[4]/div/div/div[3]/button[2]")
-  WebElement notNowOnPopUp;
+  WebElement btnPopupNotNow;
 
   public MyAccountPage clickAccountName() {
-    WaitUtils.waitTillAvailable(accountName).click();
+    WebElementUtils.waitTillAvailable(accountName).click();
     return PageFactory.initElements(WebDriverFactory.getDriver(), MyAccountPage.class);
   }
 
   public void turnOffNotifications() {
-    WaitUtils.waitTillAvailable(notNowOnPopUp);
-    notNowOnPopUp.click();
+    WebElementUtils.waitTillAvailable(btnPopupNotNow);
+    btnPopupNotNow.click();
   }
-
 }

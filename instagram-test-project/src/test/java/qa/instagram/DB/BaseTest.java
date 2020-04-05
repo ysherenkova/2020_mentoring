@@ -23,8 +23,8 @@ public class BaseTest {
 
     System.out.println("Init DB");
     //init db
-    DBManager.initDb(mariaDB);
-    DBManager.getInstance().createTable(testConfig.tableName());
+    DBManager.initJdbcTemplate(mariaDB);
+    DBManager.getInstance().createTable(testConfig.photosTableName());
   }
 
   @AfterClass

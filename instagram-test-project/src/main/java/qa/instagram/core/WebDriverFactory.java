@@ -10,7 +10,7 @@ public class WebDriverFactory {
 
   private static WebDriver driver;
 
-  public static void driverInit () {
+  public static void driverInit() {
     WebDriverManager.chromedriver().arch64().setup();
     driver = new ChromeDriver();
     driver.manage().window().maximize();
