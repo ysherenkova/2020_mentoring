@@ -12,7 +12,7 @@ public class BaseTest {
 
   @BeforeClass
   public static void beforeMethod() {
-    WebDriverFactory.driverInit();
+    WebDriverFactory.create(WebDriverFactory.BROWSER_CHROME);
     WebDriverFactory.getDriver().get(testConfig.siteUrl()); //get = open page
   }
 

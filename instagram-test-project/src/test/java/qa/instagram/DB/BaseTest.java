@@ -18,7 +18,7 @@ public class BaseTest {
   @BeforeClass
   public static void beforeMethod() {
     //driver
-    WebDriverFactory.driverInit();
+    WebDriverFactory.create(WebDriverFactory.BROWSER_CHROME);
     WebDriverFactory.getDriver().get(testConfig.siteUrl()); //get = open page
 
     System.out.println("Init DB");
