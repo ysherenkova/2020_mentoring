@@ -84,9 +84,8 @@ public class FileDownloader {
   }
 
   public byte[] downloadToMemory(URL toDownload) {
-    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 
-    try {
+    try (ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
       byte[] chunk = new byte[4096];
       int bytesRead;
       InputStream stream = toDownload.openStream();
@@ -95,11 +94,12 @@ public class FileDownloader {
         outputStream.write(chunk, 0, bytesRead);
       }
 
+      return outputStream.toByteArray();
+
     } catch (IOException e) {
       e.printStackTrace();
       return null;
     }
 
-    return outputStream.toByteArray();
   }
 }

@@ -3,9 +3,14 @@ package qa.instagram.db;
 import org.junit.Assert;
 import qa.instagram.dataTransferObjects.InstagramImageDTO;
 import qa.instagram.utils.DBManager;
+import qa.instagram.utils.FileDownloader;
+import qa.instagram.utils.FileUtils;
 import qa.instagram.utils.HashSumCalculator;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 public class DbPhotoManager {
   private String photosTableName;
@@ -37,5 +42,19 @@ public class DbPhotoManager {
 
   public int getNumberOfPhotos() {
     return DBManager.getInstance().getCountOfDBRecords(photosTableName);
+  }
+
+  public void storeToDb(FileDownloader downloader, List<String> fileUrls) {
+    fileUrls.forEach(fileUrl -> {
+      try {
+        InstagramImageDTO dto = InstagramImageDTO.create(
+                FileUtils.getFileName(fileUrl),
+                downloader.downloadToMemory(new URL(fileUrl))
+        );
+        insertPhotoWithShaCheck(dto);
+      } catch (MalformedURLException e) {
+        e.printStackTrace();
+      }
+    });
   }
 }

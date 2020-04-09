@@ -3,7 +3,6 @@ package qa.instagram.DB;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.WebElement;
-import qa.instagram.dataTransferObjects.InstagramImageDTO;
 import qa.instagram.db.DbPhotoManager;
 import qa.instagram.pages.MyAccountPage;
 import qa.instagram.pages.MyFeedPage;
@@ -12,8 +11,6 @@ import qa.instagram.utils.FileDownloader;
 import qa.instagram.utils.FileUtils;
 
 import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -38,8 +35,8 @@ public class SmokeTest extends BaseTest {
     FileDownloader downloader = new FileDownloader(testConfig.photoDownloaderThreadLimit());
     DbPhotoManager dbPhotoManager = new DbPhotoManager(testConfig.photosTableName());
 
-    storeToFs(downloader, fileUrls);
-    storeToDb(downloader, dbPhotoManager, fileUrls);
+    FileUtils.storeToFs(downloader, fileUrls, (new File(testConfig.galleryAddress()).getAbsolutePath()));
+    dbPhotoManager.storeToDb(downloader, fileUrls);
 
     // Compare counter on the instagram page with count of the records in the DB
     Assert.assertEquals(
@@ -47,21 +44,5 @@ public class SmokeTest extends BaseTest {
             dbPhotoManager.getNumberOfPhotos());
   }
 
-  private void storeToFs(FileDownloader downloader, List<String> fileUrls) {
-    downloader.downloadFileList(fileUrls, (new File(testConfig.galleryAddress()).getAbsolutePath()));
-  }
 
-  private void storeToDb(FileDownloader downloader, DbPhotoManager dbPhotoManager, List<String> fileUrls) {
-    fileUrls.forEach(fileUrl -> {
-      try {
-        InstagramImageDTO dto = InstagramImageDTO.create(
-                FileUtils.getFileName(fileUrl),
-                downloader.downloadToMemory(new URL(fileUrl))
-        );
-        dbPhotoManager.insertPhotoWithShaCheck(dto);
-      } catch (MalformedURLException e) {
-        e.printStackTrace();
-      }
-    });
-  }
 }
