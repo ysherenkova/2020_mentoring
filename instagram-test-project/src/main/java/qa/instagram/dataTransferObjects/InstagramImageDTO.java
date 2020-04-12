@@ -1,14 +1,17 @@
 package qa.instagram.dataTransferObjects;
 
+import lombok.Builder;
 import lombok.Data;
+import lombok.Value;
 
 import java.util.Date;
 
-@Data
+@Value
 public class InstagramImageDTO {
   final String id;
   final long timestamp;
   final byte[] image;
+
 
   private InstagramImageDTO(String id, byte[] content) {
     this.id = id;

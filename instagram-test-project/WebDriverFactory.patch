@@ -1,0 +1,99 @@
+Index: instagram-test-project/src/main/java/qa/instagram/core/CustomChromeDriver.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- instagram-test-project/src/main/java/qa/instagram/core/CustomChromeDriver.java	(date 1586456395081)
++++ instagram-test-project/src/main/java/qa/instagram/core/CustomChromeDriver.java	(date 1586456395081)
+@@ -0,0 +1,16 @@
++package qa.instagram.core;
++
++import io.github.bonigarcia.wdm.WebDriverManager;
++import org.openqa.selenium.WebDriver;
++import org.openqa.selenium.chrome.ChromeDriver;
++
++public class CustomChromeDriver extends ChromeDriver {
++
++  private CustomChromeDriver() {
++    WebDriverManager.chromedriver().arch64().setup();
++  }
++
++  public static WebDriver createChromeDriver() {
++    return new CustomChromeDriver();
++  }
++}
+Index: instagram-test-project/src/main/java/qa/instagram/core/CustomFirefoxDriver.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- instagram-test-project/src/main/java/qa/instagram/core/CustomFirefoxDriver.java	(date 1586456941102)
++++ instagram-test-project/src/main/java/qa/instagram/core/CustomFirefoxDriver.java	(date 1586456941102)
+@@ -0,0 +1,15 @@
++package qa.instagram.core;
++
++import io.github.bonigarcia.wdm.WebDriverManager;
++import org.openqa.selenium.WebDriver;
++import org.openqa.selenium.firefox.FirefoxDriver;
++
++public class CustomFirefoxDriver extends FirefoxDriver {
++  private CustomFirefoxDriver() {
++    WebDriverManager.firefoxdriver().arch64().setup();
++  }
++
++  public static WebDriver createFirefoxDriver() {
++    return new CustomFirefoxDriver();
++  }
++}
+Index: instagram-test-project/src/main/java/qa/instagram/core/WebDriverFactory.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- instagram-test-project/src/main/java/qa/instagram/core/WebDriverFactory.java	(revision 8744a28cf92c56a264b7bb22e7999f6f87912d20)
++++ instagram-test-project/src/main/java/qa/instagram/core/WebDriverFactory.java	(date 1586456941096)
+@@ -1,29 +1,29 @@
+ package qa.instagram.core;
+-
+-import io.github.bonigarcia.wdm.WebDriverManager;
+ import org.openqa.selenium.WebDriver;
+-import org.openqa.selenium.chrome.ChromeDriver;
+ 
+ import java.util.concurrent.TimeUnit;
+ 
+ public class WebDriverFactory {
+ 
+-  private static WebDriver driver;
++  public static final String BROWSER_CHROME = "chrome";
++  public static final String BROWSER_FIREFOX = "firefox";
+ 
+-  public static void driverInit() {
+-    WebDriverManager.chromedriver().arch64().setup();
+-    driver = new ChromeDriver();
++  public static WebDriver create(String browser) {
++    WebDriver driver = null;
++    switch (browser) {
++      case (BROWSER_CHROME):
++        driver = CustomChromeDriver.createChromeDriver();
++        break;
++      case (BROWSER_FIREFOX):
++        driver = CustomFirefoxDriver.createFirefoxDriver();
++        break;
++      default:
++        throw new RuntimeException("Not implemented for " + browser);
++    }
++
+     driver.manage().window().maximize();
+     driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+-  }
+ 
+-  public static WebDriver getDriver() {
+     return driver;
+   }
+-
+-  public static void tearDown() {
+-    if (driver != null) {
+-      driver.quit();
+-    }
+-  }
+ }
