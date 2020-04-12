@@ -1,7 +1,10 @@
 package qa.instagram.dataTransferObjects;
 
+import lombok.Data;
+
 import java.util.Date;
 
+@Data
 public class InstagramImageDTO {
   final String id;
   final long timestamp;
@@ -13,17 +16,6 @@ public class InstagramImageDTO {
     image = content;
   }
 
-  public String getId() {
-    return id;
-  }
-
-  public long getTimestamp() {
-    return timestamp;
-  }
-
-  public byte[] getImage() {
-    return image;
-  }
 
   public static InstagramImageDTO create(String fileName, byte[] data) {
     return new InstagramImageDTO(fileName, data);

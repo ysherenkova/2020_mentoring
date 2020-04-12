@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id "org.sonarqube" version "2.7"
+    id 'io.franzbecker.gradle-lombok' version '1.14'
 }
 
 group 'org.example'
@@ -21,4 +22,9 @@ dependencies {
     compile "org.testcontainers:mariadb:1.13.0"
     compile group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.6.0'
     compile group: 'org.springframework', name: 'spring-jdbc', version: '5.2.4.RELEASE'
+}
+
+lombok {
+    version = '1.18.4'
+    sha256 = ""
 }
