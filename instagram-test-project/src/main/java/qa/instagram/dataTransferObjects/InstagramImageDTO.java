@@ -1,7 +1,5 @@
 package qa.instagram.dataTransferObjects;
 
-import lombok.Builder;
-import lombok.Data;
 import lombok.Value;
 
 import java.util.Date;

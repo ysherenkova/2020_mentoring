@@ -22,9 +22,20 @@ dependencies {
     compile "org.testcontainers:mariadb:1.13.0"
     compile group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.6.0'
     compile group: 'org.springframework', name: 'spring-jdbc', version: '5.2.4.RELEASE'
+
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.13.1'
 }
 
 lombok {
     version = '1.18.4'
     sha256 = ""
+}
+
+task dbTest(type: Test) {
+    outputs.upToDateWhen { false }
+    useJUnit {
+        includeCategories 'qa.instagram.DB.dbTestInterface'
+        includeCategories 'qa.instagram.UI.uiTestInterface'
+
+    }
 }

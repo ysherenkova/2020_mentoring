@@ -1,5 +1,7 @@
 package qa.instagram.db;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
 import qa.instagram.dataTransferObjects.InstagramImageDTO;
 import qa.instagram.utils.DBManager;
@@ -13,21 +15,23 @@ import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 public class DbPhotoManager {
-  private String photosTableName;
+  private final String photosTableName;
+  protected static Logger logger = LogManager.getLogger(DbPhotoManager.class);
+
 
   public DbPhotoManager(String photosTableName) {
     this.photosTableName = photosTableName;
   }
 
   public void insertPhoto(InstagramImageDTO dto) {
-    System.out.println("jdbc=" + DBManager.getInstance().getJdbcTemplate());
+    logger.info("jdbc=" + DBManager.getInstance().getJdbcTemplate());
     DBManager.getInstance().getJdbcTemplate().update(
             "INSERT INTO " + photosTableName + " (id, timestamp, image) VALUES (?, ?, ?)",
             dto.getId(), dto.getTimestamp(), dto.getImage());
   }
 
   public void insertPhotoWithShaCheck(InstagramImageDTO dto) {
-    System.out.println("Storing " + dto.getId() + ", size=" + dto.getImage().length);
+    logger.info("Storing " + dto.getId() + ", size=" + dto.getImage().length);
     try {
       String hashSumOfDTO = HashSumCalculator.shaSum(dto.getImage());
       insertPhoto(dto);

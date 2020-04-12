@@ -1,5 +1,8 @@
 package qa.instagram.utils;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -12,6 +15,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class FileDownloader {
   private final static int BUFFER_SIZE = 4096;
   private final AtomicInteger fileNameCounter = new AtomicInteger(0);
+  protected static Logger logger = LogManager.getLogger(FileDownloader.class);
+
 
   private int numberOfThreads = 5;
 
@@ -36,7 +41,7 @@ public class FileDownloader {
           // store to file system
           downloadFile(fileUrl, storePath);
         } catch (Exception e) {
-          System.out.println("Photo download exception: " + e.getMessage());
+          logger.info("Photo download exception: " + e.getMessage());
           e.printStackTrace();
         }
       });
@@ -51,9 +56,9 @@ public class FileDownloader {
   }
 
   private void downloadFile(String url, String storeDir) throws IOException {
-    System.out.println("Downloading file " + fileNameCounter.get());
+    logger.info("Downloading file " + fileNameCounter.get());
     if (url == null) {
-      System.out.println("Invalid url parameter: null");
+      logger.error("Invalid url parameter: null");
       return;
     }
 

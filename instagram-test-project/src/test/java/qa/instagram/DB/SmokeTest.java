@@ -2,6 +2,7 @@ package qa.instagram.DB;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.openqa.selenium.WebElement;
 import qa.instagram.db.DbPhotoManager;
 import qa.instagram.pages.MyAccountPage;
@@ -19,6 +20,7 @@ import static qa.instagram.pages.SignInPage.createSignInPage;
 
 public class SmokeTest extends BaseTest {
   @Test
+  @Category(dbTestInterface.class)
   public void connectionTest() {
 
     SignInPage signInPage = createSignInPage();

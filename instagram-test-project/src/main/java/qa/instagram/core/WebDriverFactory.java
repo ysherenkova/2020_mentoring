@@ -1,5 +1,7 @@
 package qa.instagram.core;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -9,6 +11,7 @@ import org.openqa.selenium.safari.SafariDriver;
 import java.util.concurrent.TimeUnit;
 
 public class WebDriverFactory {
+  protected static Logger logger = LogManager.getLogger(WebDriverFactory.class);
 
   public static final String BROWSER_CHROME = "chrome";
   public static final String BROWSER_FIREFOX = "firefox";
@@ -21,17 +24,22 @@ public class WebDriverFactory {
     switch (browser) {
       case (BROWSER_CHROME):
         driver = new ChromeDriver();
+        logger.info("Chrome browser was chosen");
         break;
       case (BROWSER_FIREFOX):
         driver = new FirefoxDriver();
+        logger.info("FireFox browser was chosen");
         break;
       case (BROWSER_SAFARI):
         driver = new SafariDriver();
+        logger.info("Safari browser was chosen");
         break;
       case (BROWSER_EDGE):
         driver = new EdgeDriver();
+        logger.info("Edge browser was chosen");
         break;
       default:
+        logger.error("No browser was set up");
         throw new RuntimeException("Not implemented for " + browser);
     }
 
