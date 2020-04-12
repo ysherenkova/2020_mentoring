@@ -8,7 +8,11 @@ group 'org.example'
 version '1.0-SNAPSHOT'
 
 repositories {
+    mavenLocal()
     mavenCentral()
+    jcenter()
+    maven { url 'https://jitpack.io' }
+    maven { url "http://dl.bintray.com/epam/reportportal" }
 }
 
 dependencies {
@@ -24,12 +28,25 @@ dependencies {
     compile group: 'org.springframework', name: 'spring-jdbc', version: '5.2.4.RELEASE'
 
     compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.13.1'
+
+    compile 'com.epam.reportportal:logger-java-log4j:4.0.1'
+    compile 'com.epam.reportportal:agent-java-junit:4.1.10'
 }
 
 lombok {
     version = '1.18.4'
     sha256 = ""
 }
+
+ext {
+    junitFoundation = configurations.compile.resolvedConfiguration.resolvedArtifacts.find { it.name == 'junit-foundation' }
+}
+
+test.doFirst {
+    jvmArgs "-javaagent:${junitFoundation.file}"
+}
+
+
 
 task dbTest(type: Test) {
     outputs.upToDateWhen { false }
@@ -38,4 +55,10 @@ task dbTest(type: Test) {
         includeCategories 'qa.instagram.UI.uiTestInterface'
 
     }
+}
+
+
+test {
+    debug true
+    testLogging.showStandardStreams = true
 }
