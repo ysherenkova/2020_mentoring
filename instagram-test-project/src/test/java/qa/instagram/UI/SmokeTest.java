@@ -1,9 +1,10 @@
 package qa.instagram.UI;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import com.epam.reportportal.testng.ReportPortalTestNGListener;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
 import qa.instagram.pages.MyAccountPage;
 import qa.instagram.pages.MyFeedPage;
 import qa.instagram.pages.SignInPage;
@@ -17,11 +18,10 @@ import java.util.Map;
 
 import static qa.instagram.pages.SignInPage.createSignInPage;
 
+@Listeners(ReportPortalTestNGListener.class)
 public class SmokeTest extends BaseTest {
 
-
-  @Test
-  @Category(uiTestInterface.class)
+  @Test(groups = {"UI", "Smoke"})
   public void loginTest() {
     logger.info("Started UI Smoke test");
     SignInPage signInPage = createSignInPage();

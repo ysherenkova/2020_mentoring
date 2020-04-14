@@ -1,9 +1,10 @@
 package qa.instagram.DB;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import com.epam.reportportal.testng.ReportPortalTestNGListener;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
 import qa.instagram.db.DbPhotoManager;
 import qa.instagram.pages.MyAccountPage;
 import qa.instagram.pages.MyFeedPage;
@@ -18,9 +19,9 @@ import java.util.Map;
 
 import static qa.instagram.pages.SignInPage.createSignInPage;
 
+@Listeners(ReportPortalTestNGListener.class)
 public class SmokeTest extends BaseTest {
-  @Test
-  @Category(dbTestInterface.class)
+  @Test(groups = {"DB", "Smoke"})
   public void connectionTest() {
 
     SignInPage signInPage = createSignInPage();

@@ -24,6 +24,7 @@ public class WebDriverFactory {
     switch (browser) {
       case (BROWSER_CHROME):
         driver = new ChromeDriver();
+
         logger.info("Chrome browser was chosen");
         break;
       case (BROWSER_FIREFOX):
