@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import qa.instagram.core.Credentials;
+import qa.instagram.core.CredentialsDataProvider;
 import qa.instagram.pages.MyAccountPage;
 import qa.instagram.pages.MyFeedPage;
 import qa.instagram.pages.SignInPage;
@@ -18,15 +20,20 @@ import java.util.Map;
 
 import static qa.instagram.pages.SignInPage.createSignInPage;
 
+@Test()
 @Listeners(ReportPortalTestNGListener.class)
 public class SmokeTest extends BaseTest {
 
-  @Test(groups = {"UI", "Smoke"})
-  public void loginTest() {
+
+  @Test(groups = {"UI", "Smoke"}, dataProvider = "credentials-data-provider", dataProviderClass = CredentialsDataProvider.class)
+  public void loginTest(Object data) {
+    Credentials credentials = (Credentials) data;
     logger.info("Started UI Smoke test");
     SignInPage signInPage = createSignInPage();
-    signInPage.setLogin(testConfig.targetAccount());
-    signInPage.setPassword(testConfig.targetPassword());
+    System.out.println(credentials.getLogin());
+    System.out.println(credentials.getPassword());
+    signInPage.setLogin(credentials.getLogin());
+    signInPage.setPassword(credentials.getPassword());
     MyFeedPage myFeedPage = signInPage.clickSignInButton();
     myFeedPage.turnOffNotifications();
     MyAccountPage myAccountPage = myFeedPage.clickAccountName();
