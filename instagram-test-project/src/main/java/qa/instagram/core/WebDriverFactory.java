@@ -4,7 +4,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
@@ -23,8 +25,10 @@ public class WebDriverFactory {
   public static WebDriver create(String browser) {
     switch (browser) {
       case (BROWSER_CHROME):
-        driver = new ChromeDriver();
-
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--disable-extensions");
+        driver = new ChromeDriver(chromeOptions);
+        driver.manage().window().fullscreen();
         logger.info("Chrome browser was chosen");
         break;
       case (BROWSER_FIREFOX):
@@ -36,7 +40,9 @@ public class WebDriverFactory {
         logger.info("Safari browser was chosen");
         break;
       case (BROWSER_EDGE):
-        driver = new EdgeDriver();
+        EdgeOptions edgeOptions = new EdgeOptions();
+        edgeOptions.setPageLoadStrategy("normal");
+        driver = new EdgeDriver(edgeOptions);
         logger.info("Edge browser was chosen");
         break;
       default:
