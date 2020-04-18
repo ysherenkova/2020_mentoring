@@ -8,6 +8,8 @@ import org.testng.annotations.BeforeMethod;
 import qa.instagram.core.WebDriverFactory;
 import qa.instagram.utils.TestConfig;
 
+import java.io.File;
+
 public class BaseTest {
   protected static final TestConfig testConfig = ConfigFactory.create(TestConfig.class);
   protected static Logger logger = LogManager.getLogger(BaseTest.class);
@@ -17,6 +19,7 @@ public class BaseTest {
     logger.info("UI BeforeClass has been started");
     WebDriverFactory.create(WebDriverFactory.BROWSER_CHROME);
     WebDriverFactory.getDriver().get(testConfig.siteUrl()); //get = open page
+    (new File(testConfig.galleryAddress())).delete();
   }
 
 
