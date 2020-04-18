@@ -20,7 +20,6 @@ public class CredentialsDataProvider {
         String in = line.trim();
         String[] temp = in.split("\\|");
         Credentials cred = new Credentials(temp[0], temp[1]);
-        System.out.println(cred);
         data.add(cred);
       }
       return data.toArray();

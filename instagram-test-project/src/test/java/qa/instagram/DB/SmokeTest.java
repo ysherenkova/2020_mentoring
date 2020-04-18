@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import qa.instagram.core.Retry;
 import qa.instagram.db.DbPhotoManager;
 import qa.instagram.pages.MyAccountPage;
 import qa.instagram.pages.MyFeedPage;
@@ -21,7 +22,7 @@ import static qa.instagram.pages.SignInPage.createSignInPage;
 
 @Listeners(ReportPortalTestNGListener.class)
 public class SmokeTest extends BaseTest {
-  @Test(groups = {"DB", "Smoke"})
+  @Test(groups = {"DB", "Smoke"}, retryAnalyzer = Retry.class)
   public void connectionTest() {
 
     SignInPage signInPage = createSignInPage();

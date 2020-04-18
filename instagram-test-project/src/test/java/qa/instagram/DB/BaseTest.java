@@ -10,7 +10,7 @@ import qa.instagram.core.DbListener;
 import qa.instagram.core.WebDriverFactory;
 import qa.instagram.utils.TestConfig;
 
-@Listeners(DbListener.class)
+@Listeners({DbListener.class})
 public class BaseTest {
 
   protected static final TestConfig testConfig = ConfigFactory.create(TestConfig.class);

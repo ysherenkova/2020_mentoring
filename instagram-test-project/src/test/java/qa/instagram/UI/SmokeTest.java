@@ -7,6 +7,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import qa.instagram.core.Credentials;
 import qa.instagram.core.CredentialsDataProvider;
+import qa.instagram.core.Retry;
 import qa.instagram.pages.MyAccountPage;
 import qa.instagram.pages.MyFeedPage;
 import qa.instagram.pages.SignInPage;
@@ -20,12 +21,12 @@ import java.util.Map;
 
 import static qa.instagram.pages.SignInPage.createSignInPage;
 
-@Test()
+@Test
 @Listeners(ReportPortalTestNGListener.class)
 public class SmokeTest extends BaseTest {
 
 
-  @Test(groups = {"UI", "Smoke"}, dataProvider = "credentials-data-provider", dataProviderClass = CredentialsDataProvider.class)
+  @Test(groups = {"UI", "Smoke"}, retryAnalyzer = Retry.class, dataProvider = "credentials-data-provider", dataProviderClass = CredentialsDataProvider.class)
   public void loginTest(Object data) {
     Credentials credentials = (Credentials) data;
     logger.info("Started UI Smoke test");

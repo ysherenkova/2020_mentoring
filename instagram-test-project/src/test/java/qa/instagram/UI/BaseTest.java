@@ -8,7 +8,6 @@ import org.testng.annotations.BeforeMethod;
 import qa.instagram.core.WebDriverFactory;
 import qa.instagram.utils.TestConfig;
 
-
 public class BaseTest {
   protected static final TestConfig testConfig = ConfigFactory.create(TestConfig.class);
   protected static Logger logger = LogManager.getLogger(BaseTest.class);
