@@ -28,7 +28,6 @@ public class WebDriverFactory {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--disable-extensions");
         driver = new ChromeDriver(chromeOptions);
-        driver.manage().window().fullscreen();
         logger.info("Chrome browser was chosen");
         break;
       case (BROWSER_FIREFOX):

@@ -33,6 +33,8 @@ dependencies {
     compile 'com.epam.reportportal:logger-java-log4j:4.0.1'
     compile 'com.epam.reportportal:agent-java-testng:4.2.0'
 
+    compile group: 'com.google.inject', name: 'guice', version: '4.2.3'
+
 }
 
 lombok {
