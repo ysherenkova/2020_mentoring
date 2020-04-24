@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="qa.instagram.UI.SmokeTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-04-24T14:41:04" hostname="EPUAKHAW2276" time="6.74">
+  <properties/>
+  <testcase name="loginTest[0](Credentials(login=ysherenkova, password=V2VsY29tZV8xMjM))" classname="qa.instagram.UI.SmokeTest" time="6.74"/>
+  <system-out><![CDATA[chrome
+ysherenkova
+V2VsY29tZV8xMjM
+]]></system-out>
+  <system-err><![CDATA[Starting ChromeDriver 80.0.3987.16 (320f6526c1632ad4f205ebce69b99a062ed78647-refs/branch-heads/3987@{#185}) on port 19890
+Only local connections are allowed.
+Please protect ports used by ChromeDriver and related test frameworks to prevent access by malicious code.
+[1587739263.052][WARNING]: This version of ChromeDriver has not been tested with Chrome version 81.
+Apr 24, 2020 5:41:03 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+[1587739264.214][SEVERE]: Timed out receiving message from renderer: 0.100
+[1587739267.585][SEVERE]: Timed out receiving message from renderer: 0.100
+[1587739267.695][SEVERE]: Timed out receiving message from renderer: 0.100
+[1587739267.796][SEVERE]: Timed out receiving message from renderer: 0.100
+]]></system-err>
+</testsuite>

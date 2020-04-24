@@ -13,7 +13,7 @@ public class DBManager {
   private static TestConfig testConfig = ConfigFactory.create(TestConfig.class);
   private static JdbcTemplate jdbcTemplate;
 
-  private DBManager() {
+  public DBManager() {
     testConfig = ConfigFactory.create(TestConfig.class);
   }
 
@@ -54,6 +54,10 @@ public class DBManager {
     RowCountCallbackHandler countCallback = new RowCountCallbackHandler();
     jdbcTemplate.query("SELECT * FROM " + tableName, countCallback);
     return countCallback.getRowCount();
+  }
+
+  public void dropTable(String name) {
+    executeQuery("DROP TABLE IF EXISTS " + name);
   }
 
   public void createTable(String name) {

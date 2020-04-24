@@ -8,7 +8,10 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import qa.instagram.core.DbListener;
 import qa.instagram.core.WebDriverFactory;
+import qa.instagram.utils.DBManager;
 import qa.instagram.utils.TestConfig;
+
+import java.io.File;
 
 @Listeners({DbListener.class})
 public class BaseTest {
@@ -27,5 +30,8 @@ public class BaseTest {
   public static void afterMethod() {
     logger.info("DB AfterClass has been started");
     WebDriverFactory.tearDown();
+
+    (new DBManager()).dropTable(testConfig.databaseName());
+    (new File(testConfig.galleryAddress())).delete();
   }
 }
