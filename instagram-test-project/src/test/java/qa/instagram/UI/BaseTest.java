@@ -24,7 +24,7 @@ public class BaseTest {
 
     Injector injector = Guice.createInjector(new WebDriverModule());
 
-    String browser = System.getProperty("browser");
+    String browser = System.getProperty("browser", "chrome");
     System.out.println(browser);
 
     WebDriverFactory.create(browser);

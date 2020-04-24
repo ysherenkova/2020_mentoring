@@ -5,7 +5,8 @@ import org.testng.ITestResult;
 
 public class Retry implements IRetryAnalyzer {
 
-  private static final int maxTry = Integer.getInteger(System.getProperty("numberOfRuns"));
+  private static final int maxTry = Integer.parseInt(System.getProperty("numberOfRuns", "0"));
+  //private static final int maxTry = 3;
   private int count = 0;
 
   @Override

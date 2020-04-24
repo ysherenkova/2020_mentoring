@@ -1,5 +1,6 @@
 package qa.instagram.core;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -28,10 +29,13 @@ public class WebDriverFactory {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--disable-extensions");
         driver = new ChromeDriver(chromeOptions);
+        //     WebDriverManager.chromedriver().arch64().setup();
+        System.setProperty("webdriver.chrome.path", "/Users/yuliia_sherenkova/Documents/GitHub/2020_mentoring/instagram-test-project/chromedriver");
         logger.info("Chrome browser was chosen");
         break;
       case (BROWSER_FIREFOX):
         driver = new FirefoxDriver();
+        WebDriverManager.firefoxdriver().arch64().setup();
         logger.info("FireFox browser was chosen");
         break;
       case (BROWSER_SAFARI):
