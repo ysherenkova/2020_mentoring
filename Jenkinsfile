@@ -61,11 +61,5 @@ pipeline {
 			}
 		}
 	}
-	post {
-		always { //Send an email to the person that broke the build
-            step([$class                  : 'Mailer',
-                  notifyEveryUnstableBuild: true,
-                  recipients              : [emailextrecipients([[$class: 'CulpritsRecipientProvider'], [$class: 'RequesterRecipientProvider']])].join(' ')])
-        }
-	}
+
 }
