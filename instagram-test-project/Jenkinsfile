@@ -28,10 +28,7 @@ pipeline {
 		stage("build") {
 			steps {
 				echo 'building the application...'
-				gradle {
-					tasks ('clean')
-					tasks('build')
-				}
+				sh './gradlew clean build'
 			}
 		}
 
@@ -43,9 +40,7 @@ pipeline {
 			}
 			steps {
 				echo 'testing the application...'
-				gradle {
-					tasks('runTests')
-				}
+				sh './gradlew runTests'
 			}
 		}
 
