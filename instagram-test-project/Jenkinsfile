@@ -40,7 +40,7 @@ pipeline {
 			steps {
 				echo 'testing the application...'
 				script {
-                        sh './gradlew runTests --no-daemon' //run a gradle task
+                        sh './gradlew --no-daemon' //run a gradle task
                 }
 			}
 		}
