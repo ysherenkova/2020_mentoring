@@ -27,6 +27,7 @@ pipeline {
 
 		stage("build") {
 			steps {
+				git credentialsId: 'f76b9de0-fc06-4577-b468-69855a5d7831', url: 'https://github.com/ysherenkova/TA_mentoring.git'
 				echo 'building the application...'
 				sh './gradlew clean build'
 			}
