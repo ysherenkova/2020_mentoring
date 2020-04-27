@@ -26,11 +26,6 @@ pipeline {
 	stages {
 
 		stage("build") {
-			when {
-				expression {
-					//the part in steps will be executed only if this condition will be met
-				}
-			}
 			steps {
 				echo 'building the application...'
 			}
@@ -39,8 +34,7 @@ pipeline {
 		stage("test") {
 			when {
 				expression {
-					//the part in steps will be executed only if this condition will be met
-					params.executeTests == true
+					params.executeTests == true 	//the part in steps will be executed only if this condition will be met
 				}
 			}
 			steps {
