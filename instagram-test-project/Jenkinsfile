@@ -39,9 +39,9 @@ pipeline {
 			}
 			steps {
 				echo 'testing the application...'
-				script {
-                        sh './gradlew --no-daemon' //run a gradle task
-                }
+				gradle {
+					tasks('tunTests')
+				}
 			}
 		}
 
