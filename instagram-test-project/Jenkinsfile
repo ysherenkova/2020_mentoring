@@ -28,6 +28,10 @@ pipeline {
 		stage("build") {
 			steps {
 				echo 'building the application...'
+				gradle {
+					tasks ('clean')
+					tasks('build')
+				}
 			}
 		}
 
