@@ -41,7 +41,8 @@ pipeline {
 			}
 			steps {
 				echo 'testing the application...'
-				sh './instagram-test-project/gradlew runTests'
+				dir 'instagram-test-project'
+				sh './gradlew runTests'
 			}
 		}
 
