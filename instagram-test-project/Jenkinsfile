@@ -44,7 +44,7 @@ pipeline {
 			steps {
 				echo 'testing the application...'
 				gradle {
-					tasks('tunTests')
+					tasks('runTests')
 				}
 			}
 		}
