@@ -13,6 +13,8 @@ import qa.instagram.utils.TestConfig;
 
 import java.io.File;
 
+import static qa.instagram.core.WebDriverFactory.SELENOID;
+
 @Listeners({DbListener.class})
 public class BaseTest {
 
@@ -22,7 +24,7 @@ public class BaseTest {
   @BeforeMethod
   public static void beforeMethod() {
     logger.info("DB BeforeClass has been started");
-    WebDriverFactory.create(WebDriverFactory.BROWSER_CHROME);
+    WebDriverFactory.create(SELENOID);
     WebDriverFactory.getDriver().get(testConfig.siteUrl()); //get = open page
   }
 

@@ -1,0 +1,15 @@
+{
+  "chrome": {
+    "default": "81.0",
+    "versions": {
+      "81.0": {
+        "image": "selenoid/chrome:81.0",
+        "port": "4444",
+        "path": "/",
+        "tmpfs": {
+          "/tmp": "size=128m"
+        }
+      }
+    }
+  }
+}

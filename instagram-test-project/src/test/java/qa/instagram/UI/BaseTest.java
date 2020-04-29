@@ -13,6 +13,8 @@ import qa.instagram.utils.TestConfig;
 
 import java.io.File;
 
+import static qa.instagram.core.WebDriverFactory.SELENOID;
+
 public class BaseTest {
   protected static final TestConfig testConfig = ConfigFactory.create(TestConfig.class);
   protected static Logger logger = LogManager.getLogger(BaseTest.class);
@@ -27,7 +29,7 @@ public class BaseTest {
     String browser = System.getProperty("browser", "chrome");
     System.out.println(browser);
 
-    WebDriverFactory.create(browser);
+    WebDriverFactory.create(SELENOID);
     WebDriverFactory.getDriver().get(testConfig.siteUrl()); //
 
 

@@ -20,6 +20,7 @@ public class WebDriverFactory {
   public static final String BROWSER_FIREFOX = "firefox";
   public static final String BROWSER_SAFARI = "safari";
   public static final String BROWSER_EDGE = "edge";
+  public static final String SELENOID = "selenoid";
 
   public static WebDriver driver;
 
@@ -47,6 +48,11 @@ public class WebDriverFactory {
         edgeOptions.setPageLoadStrategy("normal");
         driver = new EdgeDriver(edgeOptions);
         logger.info("Edge browser was chosen");
+        break;
+      case (SELENOID):
+        SelenoidWebDriverProvider provider = new SelenoidWebDriverProvider();
+        driver = provider.createDriver(null);
+        logger.info("Selenoid browser was chosen");
         break;
       default:
         logger.error("No browser was set up");
