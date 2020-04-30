@@ -23,6 +23,7 @@ public class WebDriverFactory {
   public static final String SELENOID = "selenoid";
 
   public static WebDriver driver;
+  private static final ThreadLocal<WebDriver> DRIVER = new ThreadLocal<>();
 
   public static WebDriver create(String browser) {
     switch (browser) {
@@ -51,7 +52,9 @@ public class WebDriverFactory {
         break;
       case (SELENOID):
         SelenoidWebDriverProvider provider = new SelenoidWebDriverProvider();
-        driver = provider.createDriver(null);
+        if (DRIVER.get() == null) {
+          DRIVER.set(provider.createDriver(null));
+        }
         logger.info("Selenoid browser was chosen");
         break;
       default:
@@ -59,14 +62,21 @@ public class WebDriverFactory {
         throw new RuntimeException("Not implemented for " + browser);
     }
 
-    driver.manage().window().maximize();
-    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+//    driver.manage().window().maximize();
+//    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
 
     return driver;
   }
 
   public static WebDriver getDriver() {
-    return driver;
+    //return driver;
+
+
+    DRIVER.get().manage().window().maximize();
+    DRIVER.get().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
+    return DRIVER.get();
   }
 
   public static void tearDown() {
