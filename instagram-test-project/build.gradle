@@ -49,6 +49,7 @@ tasks.withType(Test) {
             tag: System.getProperty('tag', 'Smoke')
     ]
 }
+
 task runTests(type: Test) {
     useTestNG() {
       //  includeGroups System.getProperty('tag', 'Smoke')

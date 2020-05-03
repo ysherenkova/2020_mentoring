@@ -23,14 +23,14 @@ public class DbPhotoManager {
     this.photosTableName = photosTableName;
   }
 
-  public void insertPhoto(InstagramImageDTO dto) {
+  public synchronized void insertPhoto(InstagramImageDTO dto) {
     logger.info("jdbc=" + DBManager.getInstance().getJdbcTemplate());
     DBManager.getInstance().getJdbcTemplate().update(
             "INSERT INTO " + photosTableName + " (id, timestamp, image) VALUES (?, ?, ?)",
             dto.getId(), dto.getTimestamp(), dto.getImage());
   }
 
-  public void insertPhotoWithShaCheck(InstagramImageDTO dto) {
+  public synchronized void insertPhotoWithShaCheck(InstagramImageDTO dto) {
     logger.info("Storing " + dto.getId() + ", size=" + dto.getImage().length);
     try {
       String hashSumOfDTO = HashSumCalculator.shaSum(dto.getImage());
@@ -48,7 +48,7 @@ public class DbPhotoManager {
     return DBManager.getInstance().getCountOfDBRecords(photosTableName);
   }
 
-  public void storeToDb(FileDownloader downloader, List<String> fileUrls) {
+  public synchronized void storeToDb(FileDownloader downloader, List<String> fileUrls) {
     fileUrls.forEach(fileUrl -> {
       try {
         InstagramImageDTO dto = InstagramImageDTO.create(
