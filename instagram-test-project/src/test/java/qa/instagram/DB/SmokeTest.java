@@ -24,7 +24,7 @@ import static qa.instagram.pages.SignInPage.createSignInPage;
 
 @Listeners(ReportPortalTestNGListener.class)
 public class SmokeTest extends BaseTest {
-  @Test(groups = {"DB", "Smoke"}, threadPoolSize = 5, invocationCount = 5, retryAnalyzer = Retry.class, dataProvider = "credentials-data-provider", dataProviderClass = CredentialsDataProvider.class)
+  @Test(groups = {"DB", "Smoke"}, threadPoolSize = 1, invocationCount = 1, retryAnalyzer = Retry.class, dataProvider = "credentials-data-provider", dataProviderClass = CredentialsDataProvider.class)
   public void connectionTest(Object data) {
     Credentials credentials = (Credentials) data;
 

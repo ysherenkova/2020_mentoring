@@ -1,9 +1,9 @@
 package qa.instagram.utils;
 
 import org.aeonbits.owner.ConfigFactory;
+import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowCountCallbackHandler;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.testcontainers.containers.MariaDBContainer;
 
 public class DBManager {
@@ -25,7 +25,7 @@ public class DBManager {
   }
 
   public static void initJdbcTemplate(MariaDBContainer container) {
-    DriverManagerDataSource dataSource = new DriverManagerDataSource();
+    BasicDataSource dataSource = DBCPDataSource.ds;
     dataSource.setDriverClassName("org.mariadb.jdbc.Driver");
     dataSource.setUsername(container.getUsername());
     dataSource.setPassword(container.getPassword());

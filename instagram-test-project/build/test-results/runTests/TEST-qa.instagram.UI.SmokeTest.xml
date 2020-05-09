@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="qa.instagram.UI.SmokeTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2020-05-02T17:51:51" hostname="EPUAKHAW2276" time="11.091">
+<testsuite name="qa.instagram.UI.SmokeTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2020-05-09T14:48:26" hostname="EPUAKHAW2276" time="11.594">
   <properties/>
-  <testcase name="loginTest[0](Credentials(login=ysherenkova, password=V2VsY29tZV8xMjM))" classname="qa.instagram.UI.SmokeTest" time="11.091">
+  <testcase name="loginTest[0](Credentials(login=ysherenkova, password=V2VsY29tZV8xMjM))" classname="qa.instagram.UI.SmokeTest" time="11.594">
     <failure message="org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: /html/body/div[4]/div/div/div[3]/button[2]' (tried for 5 second(s) with 1000 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: /html/body/div[4]/div/div/div[3]/button[2]' (tried for 5 second(s) with 1000 milliseconds interval)
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
@@ -67,8 +67,8 @@ For documentation on this error, please visit: https://www.seleniumhq.org/except
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'EPUAKHAW2276', ip: 'fe80:0:0:0:c54:f890:200:25a3%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.14.6', java.version: '1.8.0_241'
 Driver info: org.openqa.selenium.remote.RemoteWebDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.92, chrome: {chromedriverVersion: 81.0.4044.69 (6813546031a4b..., userDataDir: /tmp/.com.google.Chrome.BzJA7F}, goog:chromeOptions: {debuggerAddress: localhost:36717}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
-Session ID: 27430e7e39362fdb8fbf5cf192094bc9
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.92, chrome: {chromedriverVersion: 81.0.4044.69 (6813546031a4b..., userDataDir: /tmp/.com.google.Chrome.nqx47e}, goog:chromeOptions: {debuggerAddress: localhost:44765}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: 372c18bcaeba5fad05cfa9e7b6a3f2ff
 *** Element info: {Using=xpath, value=/html/body/div[4]/div/div/div[3]/button[2]}
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
@@ -98,7 +98,5 @@ Session ID: 27430e7e39362fdb8fbf5cf192094bc9
 ysherenkova
 V2VsY29tZV8xMjM
 ]]></system-out>
-  <system-err><![CDATA[May 02, 2020 8:51:49 PM org.openqa.selenium.remote.ProtocolHandshake createSession
-INFO: Detected dialect: W3C
-]]></system-err>
+  <system-err><![CDATA[]]></system-err>
 </testsuite>
